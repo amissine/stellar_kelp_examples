@@ -1,5 +1,5 @@
 # stellar_kelp_examples
-Take a look at the code:
+Work in progress, not yet ready to use. Take a look at the code:
 ```bash
 vim -S session.vim
 ```
