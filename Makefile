@@ -37,5 +37,11 @@ RECIPES = buysell \
 default_recipe: buysell
 
 # Run buysell example {{{1
-buysell:
-	@./buysell.sh
+buysell: cfg/buysell.cfg cfg/trader.cfg
+	@kelp trade --botConf ./cfg/trader.cfg --strategy buysell --stratConf ./cfg/buysell.cfg
+
+cfg/buysell.cfg:
+	@sh/cfg_buysell.sh
+
+cfg/trader.cfg:
+	@sh/cfg_trader.sh
