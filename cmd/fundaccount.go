@@ -28,7 +28,7 @@ send the specified amount of the asset to the receiving account.`,
 func init() {
 	options := inputs{}
 	options.asset = fundaccountCmd.Flags().StringP("asset", "", "", "(required) the name of the asset")
-	fundaccountCmd.Flags().Float64Var(&options.amount, "amount", 0, "(required) the amount of the asset")
+	options.amount = fundaccountCmd.Flags().StringP("amount", "", "", "(required) the amount of the asset")
 	options.accountSeed = fundaccountCmd.Flags().StringP("accountSeed", "", "", "(required) the seed of the receiving account")
 	options.issuerSeed = fundaccountCmd.Flags().StringP("issuerSeed", "", "", "(required) the seed of the issuing account")
 	requiredFlag("asset", fundaccountCmd)

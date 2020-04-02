@@ -17,7 +17,7 @@ var getinfoCmd = &cobra.Command{
 type inputs struct {
 	accountSeed *string
 	address     *string
-	amount      float64
+	amount      *string
 	asset       *string
 	issuerSeed  *string
 }
@@ -46,5 +46,7 @@ func getinfoCmdRun(options inputs) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(hAccount)
+	for _, b := range hAccount.Balances {
+		fmt.Println(b.Balance, b.Asset)
+	}
 }
