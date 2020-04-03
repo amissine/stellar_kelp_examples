@@ -28,10 +28,14 @@ SHELL := bash
 
 # Locals {{{1
 
-RECIPES = buysell \
+RECIPES = buysell reset \
 					default_recipe
 
 .PHONY: $(RECIPES)
+
+CONF := bin/stellar_kelp_examples
+COMMANDS := cmd/root.go cmd/addaccount.go cmd/fundaccount.go cmd/getinfo.go
+ISSUER_SEED := SANPCJHHXCPRN6IIZRBEQXS5M3L2LY7EYQLAVTYD56KL3V7ABO4I3ISZ
 
 # Default recipe: buysell {{{1
 default_recipe: buysell
@@ -41,7 +45,31 @@ buysell: cfg/buysell.cfg cfg/trader.cfg
 	@kelp trade --botConf ./cfg/trader.cfg --strategy buysell --stratConf ./cfg/buysell.cfg
 
 cfg/buysell.cfg:
-	@sh/cfg_buysell.sh
+	cp $@.src $@
 
-cfg/trader.cfg:
-	@sh/cfg_trader.sh
+cfg/trader.cfg: add_trader_account.run fund_source_account.run
+	@./cfg_trader.sh
+
+add_trader_account.run: add_source_account.run
+	@echo "export SOURCE_ACCOUNT_SEED=$$(cat add_source_account.run | grep seed | awk '{print $$2}')" > e; \
+	. e; rm e; \
+	./conf addaccount --accountSeed "$$SOURCE_ACCOUNT_SEED" > $@
+
+add_source_account.run: $(CONF)
+	./conf addaccount > $@
+
+$(CONF): vendor main.go $(COMMANDS)
+	go build -o bin/
+
+fund_source_account.run: add_source_account.run
+	@echo "export SOURCE_ACCOUNT_SEED=$$(cat add_source_account.run | grep seed | awk '{print $$2}')" > e; \
+	. e; rm e; \
+	./conf fundaccount --issuerSeed $(ISSUER_SEED) --accountSeed "$$SOURCE_ACCOUNT_SEED" --asset COUPON > $@
+
+reset:
+	touch add_source_account.run; sleep 1; \
+	touch add_trader_account.run; sleep 1; \
+	touch fund_source_account.run; touch vendor/
+
+vendor: vendor.zip # create vendor.zip with 'zip -qr vendor vendor'
+	@echo vendor is older, unzip $<

@@ -1,7 +1,7 @@
 # Based off of sample config file for the kelp bot
 
-# the trading account, this is the account that "owns" the trades ({TRADING_PUBLIC_KEY})
-TRADING_SECRET_SEED="{TRADING_SECRET_SEED}"
+# the trading account, this is the account that "owns" the trades ({TRADER_PUBLIC_KEY})
+TRADING_SECRET_SEED="{TRADER_SECRET_SEED}"
 # (optional) the source account, this is the account used to deduct fees and consume the sequence number ({SOURCE_PUBLIC_KEY})
 SOURCE_SECRET_SEED="{SOURCE_SECRET_SEED}"
 

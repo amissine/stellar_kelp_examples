@@ -27,10 +27,17 @@ the default amount is 500 XLM.
 Without the accountSeed flag, a new source account gets created and funded by the
 friendbot. If the amount flag is given, it is being ignored.`,
 	Example: `  conf addaccount
+- new source account added:
+     seed SA6OPLUHQVKZXMHKSFT3NMOYZWRSYZGQLHEBPL4OYXE4UKDYPGK3XT77
+  address GCPH53LQAAR43MTWFZ3YCMEUATJ4URN2CX47TXVMPE5N74BHBN3LQGXZ
+   amount 10000.0000000 XLM
+	
+  conf addaccount \
+  --accountSeed SA6OPLUHQVKZXMHKSFT3NMOYZWRSYZGQLHEBPL4OYXE4UKDYPGK3XT77
 - new account added:
-     seed GBMMZMK2DC4FFP4CAI6KCVNCQ7WLO5A7DQU7EC7WGHRDQBZB763X4OQI
-  address GBMMZMK2DC4FFP4CAI6KCVNCQ7WLO5A7DQU7EC7WGHRDQBZB763X4OQI
-   amount 10000 XLM
+     seed SCCS7XNIT4SJ2AMVTX2RCRJJLHOWB74C2MY26MENUCHDEWV7RH6QYLLM
+  address GBJIIGAC5IUGL7NEJJQ7T5E6U2UGNAFDSE4TK2T2BZMBSISXCBFTX77G
+   amount 500.0000000 XLM
 `,
 }
 
@@ -45,7 +52,7 @@ func init() { // {{{1
 }
 
 func addaccountCmdRun(options inputs) { // {{{1
-	if *options.accountSeed == "" {
+	if *options.accountSeed == "" { // {{{2
 		addSourceAccount()
 		return
 	}
@@ -82,31 +89,11 @@ func addaccountCmdRun(options inputs) { // {{{1
 
 	// Sign the transaction, serialise it to XDR, and base 64 encode it {{{2
 	txeBase64, err := tx.BuildSignEncode(pair.(*keypair.Full))
-	if err != nil {
-		log.Fatal(err)
-	}
+	check(err)
 
 	// Submit the transaction {{{2
-	_, err = client.SubmitTransactionXDR(txeBase64)
-	if err != nil {
-		hError := err.(*horizonclient.Error)
-		log.Fatal("Error submitting transaction:", hError)
-	}
-
-	fmt.Println("- new account added:") // {{{2
-	fmt.Println("     seed", kp.Seed())
-	fmt.Println("  address", kp.Address())
-	accountRequest = horizonclient.AccountRequest{AccountID: kp.Address()}
-	hAccount, err := client.AccountDetail(accountRequest)
-	if err != nil {
-		log.Fatal(err)
-	}
-	var amount string
-	for _, b := range hAccount.Balances {
-		fmt.Println(b.Balance, b.Asset)
-		amount = b.Balance
-	}
-	fmt.Println("   amount", amount, "XLM") // }}}2
+	submit(txeBase64, client) // }}}2
+	getInfo("- new account added:", kp, client)
 }
 
 func addSourceAccount() { // {{{1
@@ -118,21 +105,29 @@ func addSourceAccount() { // {{{1
 
 	// Create and fund the address on TestNet, using friendbot {{{2
 	client := horizonclient.DefaultTestNetClient
-	client.Fund(pair.Address())
+	client.Fund(pair.Address()) // }}}2
+	getInfo("- new source account added:", pair, client)
+}
 
-	// Get information about the account we just created {{{2
-	accountRequest := horizonclient.AccountRequest{AccountID: pair.Address()}
-	hAccount, err := client.AccountDetail(accountRequest)
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Println("- new account added:")
-	fmt.Println("     seed", pair.Seed())
-	fmt.Println("  address", pair.Address())
+func getInfo(title string, kp *keypair.Full, client *horizonclient.Client) { // {{{1
+	fmt.Println(title)
+	fmt.Println("     seed", kp.Seed())
+	fmt.Println("  address", kp.Address())
+	ar := horizonclient.AccountRequest{AccountID: kp.Address()}
+	account, e := client.AccountDetail(ar)
+	check(e)
 	var amount string
-	for _, b := range hAccount.Balances {
+	for _, b := range account.Balances {
 		fmt.Println(b.Balance, b.Asset)
 		amount = b.Balance
 	}
-	fmt.Println("   amount", amount, "XLM") // }}}2
+	fmt.Println("   amount", amount, "XLM")
+}
+
+func submit(txeBase64 string, client *horizonclient.Client) { // {{{1
+	_, e := client.SubmitTransactionXDR(txeBase64)
+	if e != nil {
+		hError := e.(*horizonclient.Error)
+		log.Fatal("Error submitting transaction:", hError)
+	}
 }

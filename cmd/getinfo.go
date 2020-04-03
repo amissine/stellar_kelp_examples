@@ -2,7 +2,6 @@ package cmd
 
 import (
 	"fmt"
-	"log"
 
 	"github.com/spf13/cobra"
 	"github.com/stellar/go/clients/horizonclient"
@@ -34,18 +33,14 @@ func init() {
 
 func requiredFlag(flag string, ccmd *cobra.Command) {
 	e := ccmd.MarkFlagRequired(flag)
-	if e != nil {
-		panic(e)
-	}
+	check(e)
 }
 
 func getinfoCmdRun(options inputs) {
 	client := horizonclient.DefaultTestNetClient
 	accountRequest := horizonclient.AccountRequest{AccountID: *options.address}
 	hAccount, err := client.AccountDetail(accountRequest)
-	if err != nil {
-		log.Fatal(err)
-	}
+	check(err)
 	for _, b := range hAccount.Balances {
 		fmt.Println(b.Balance, b.Asset)
 	}
