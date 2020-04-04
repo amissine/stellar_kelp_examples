@@ -1,5 +1,5 @@
 # Binaries for programs and plugins
-# bin/
+bin/
 *.exe
 *.exe~
 *.dll
@@ -21,3 +21,6 @@ vendor/
 # stellar_kelp_examples
 syserr
 progress.saved
+*.run
+*.cfg
+kelp.prefs

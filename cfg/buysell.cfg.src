@@ -1,4 +1,4 @@
-# Sample config file for the "buysell" strategy
+# Based off of sample config file for the "buysell" strategy
 
 # Price Feeds
 # Note: we take the value from the A feed and divide it by the value retrieved from the B feed below.
