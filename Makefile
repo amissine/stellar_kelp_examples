@@ -47,7 +47,7 @@ buysell: cfg/buysell.cfg cfg/trader.cfg
 cfg/buysell.cfg:
 	cp $@.src $@
 
-cfg/trader.cfg: add_trader_account.run fund_source_account.run
+cfg/trader.cfg: add_trader_account.run fund_trader_account.run
 	@echo "export TRADER_PUBLIC_KEY=$$(cat add_trader_account.run | grep address | awk '{print $$2}')" > e; \
 	echo "export TRADER_SECRET_SEED=$$(cat add_trader_account.run | grep seed | awk '{print $$2}')" >> e; \
 	echo "export SOURCE_PUBLIC_KEY=$$(cat fund_source_account.run | grep address | awk '{print $$2}')" >> e; \
@@ -61,26 +61,26 @@ cfg/trader.cfg: add_trader_account.run fund_source_account.run
 add_trader_account.run: add_source_account.run
 	@echo "export SOURCE_ACCOUNT_SEED=$$(cat add_source_account.run | grep seed | awk '{print $$2}')" > e; \
 	. e; rm e; \
-	./conf addaccount --accountSeed "$$SOURCE_ACCOUNT_SEED" > $@
+	$(CONF) addaccount --accountSeed "$$SOURCE_ACCOUNT_SEED" > $@
 
 add_source_account.run: $(CONF)
-	./conf addaccount > $@
+	$(CONF) addaccount > $@
 
 $(CONF): main.go $(COMMANDS)
-	go build -o bin/
+	go build -o $@
 
 fund_source_account.run: add_source_account.run
 	@echo "export SOURCE_ACCOUNT_SEED=$$(cat add_source_account.run | grep seed | awk '{print $$2}')" > e; \
 	. e; rm e; \
-	./conf fundaccount --issuerSeed $(ISSUER_SEED) --accountSeed "$$SOURCE_ACCOUNT_SEED" --asset COUPON > $@
+	$(CONF) fundaccount --issuerSeed $(ISSUER_SEED) --accountSeed "$$SOURCE_ACCOUNT_SEED" --asset COUPON > $@
 
 fund_trader_account.run: # add_trader_account.run
 	@echo "export ACCOUNT_SEED=$$(cat add_trader_account.run | grep seed | awk '{print $$2}')" > e; \
 	. e; rm e; \
-	./conf fundaccount --issuerSeed $(ISSUER_SEED) --accountSeed "$$ACCOUNT_SEED" --asset COUPON > $@
+	$(CONF) fundaccount --issuerSeed $(ISSUER_SEED) --accountSeed "$$ACCOUNT_SEED" --asset COUPON > $@
 
 reset:
 	touch add_source_account.run add_trader_account.run fund_source_account.run vendor
 
 vendor: vendor.zip # create vendor.zip with 'zip -qr vendor vendor'
-	@echo vendor is older, unzip $<
+	@unzip vendor.zip

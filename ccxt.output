@@ -1,0 +1,132 @@
+alec@miasrv ~/go/src/github.com/amissine/stellar_kelp_examples (master) $ sudo docker run -p 3000:3000 -d franzsee/ccxt-rest:v0.0.4
+1ab700ed5c535627747e14a92c6e84d22c0df33eac9a43cf7d46aaa971eabddc
+alec@miasrv ~/go/src/github.com/amissine/stellar_kelp_examples (master) $ netstat -anop|grep 3000
+(Not all processes could be identified, non-owned process info
+ will not be shown, you would have to be root to see it all.)
+tcp6       0      0 :::3000                 :::*                    LISTEN      -                    off (0.00/0/0)
+alec@miasrv ~/go/src/github.com/amissine/stellar_kelp_examples (master) $ sudo netstat -anop|grep 3000
+tcp6       0      0 :::3000                 :::*                    LISTEN      15290/docker-proxy   off (0.00/0/0)
+alec@miasrv ~/go/src/github.com/amissine/stellar_kelp_examples (master) $ make
+2020/04/05 15:47:04 Starting Kelp Trader: master:ui-astilectron-vendor-7-g5a5967c7 [5a5967c78e087023ac96bf64e5683a52ff5af7ae]
+2020/04/05 15:47:04 will run unbounded iterations
+2020/04/05 15:47:04 configs:
+2020/04/05 15:47:04      SOURCE_SECRET_SEED: 
+2020/04/05 15:47:04      TRADING_SECRET_SEED: [secret key to account GA6OVWN3S3VXDCIEGOU6WLKRKLHTHWMCJ42OIFE2VN5AVNKQ55FWCA3G]
+2020/04/05 15:47:04      ASSET_CODE_A: XLM
+2020/04/05 15:47:04      ISSUER_A: 
+2020/04/05 15:47:04      ASSET_CODE_B: COUPON
+2020/04/05 15:47:04      ISSUER_B: GBMMZMK2DC4FFP4CAI6KCVNCQ7WLO5A7DQU7EC7WGHRDQBZB763X4OQI
+2020/04/05 15:47:04      TICK_INTERVAL_SECONDS: 300
+2020/04/05 15:47:04      MAX_TICK_DELAY_MILLIS: 0
+2020/04/05 15:47:04      DELETE_CYCLES_THRESHOLD: 0
+2020/04/05 15:47:04      SUBMIT_MODE: both
+2020/04/05 15:47:04      FILL_TRACKER_SLEEP_MILLIS: 0
+2020/04/05 15:47:04      FILL_TRACKER_DELETE_CYCLES_THRESHOLD: 0
+2020/04/05 15:47:04      FILL_TRACKER_LAST_TRADE_CURSOR_OVERRIDE: 
+2020/04/05 15:47:04      HORIZON_URL: https://horizon-testnet.stellar.org
+2020/04/05 15:47:04      CCXT_REST_URL: <nil>
+2020/04/05 15:47:04      FEE: 
+2020/04/05 15:47:04          CAPACITY_TRIGGER: 0.8
+2020/04/05 15:47:04          PERCENTILE: 90
+2020/04/05 15:47:04          MAX_OP_FEE_STROOPS: 5000
+2020/04/05 15:47:04      CENTRALIZED_PRICE_PRECISION_OVERRIDE: <nil>
+2020/04/05 15:47:04      CENTRALIZED_VOLUME_PRECISION_OVERRIDE: <nil>
+2020/04/05 15:47:04      CENTRALIZED_MIN_BASE_VOLUME_OVERRIDE: <nil>
+2020/04/05 15:47:04      CENTRALIZED_MIN_QUOTE_VOLUME_OVERRIDE: <nil>
+2020/04/05 15:47:04      POSTGRES_DB: <nil>
+2020/04/05 15:47:04      FILTERS: []
+2020/04/05 15:47:04      ALERT_TYPE: 
+2020/04/05 15:47:04      ALERT_API_KEY: 
+2020/04/05 15:47:04      MONITORING_PORT: 0
+2020/04/05 15:47:04      MONITORING_TLS_CERT: 
+2020/04/05 15:47:04      MONITORING_TLS_KEY: 
+2020/04/05 15:47:04      GOOGLE_CLIENT_ID: 
+2020/04/05 15:47:04      GOOGLE_CLIENT_SECRET: 
+2020/04/05 15:47:04      ACCEPTABLE_GOOGLE_EMAILS: 
+2020/04/05 15:47:04      TRADING_EXCHANGE: 
+2020/04/05 15:47:04      EXCHANGE_API_KEYS: 
+2020/04/05 15:47:04      EXCHANGE_PARAMS: 
+2020/04/05 15:47:04      EXCHANGE_HEADERS: 
+2020/04/05 15:47:04 Trading XLM: for COUPON:GBMMZMK2DC4FFP4CAI6KCVNCQ7WLO5A7DQU7EC7WGHRDQBZB763X4OQI
+2020/04/05 15:47:04 using CCXT-rest URL: http://localhost:3000
+2020/04/05 15:47:04 Using network passphrase: Test SDF Network ; September 2015
+2020/04/05 15:47:04 No Source Account Set
+2020/04/05 15:47:04 Making strategy: buysell
+2020/04/05 15:47:04 configs:
+2020/04/05 15:47:04      PRICE_TOLERANCE: 0.001
+2020/04/05 15:47:04      AMOUNT_TOLERANCE: 0.001
+2020/04/05 15:47:04      RATE_OFFSET_PERCENT: 0
+2020/04/05 15:47:04      RATE_OFFSET: 0
+2020/04/05 15:47:04      RATE_OFFSET_PERCENT_FIRST: true
+2020/04/05 15:47:04      AMOUNT_OF_A_BASE: 10
+2020/04/05 15:47:04      DATA_TYPE_A: exchange
+2020/04/05 15:47:04      DATA_FEED_A_URL: kraken/XXLM/ZUSD/mid
+2020/04/05 15:47:04      DATA_TYPE_B: fixed
+2020/04/05 15:47:04      DATA_FEED_B_URL: 1.0
+2020/04/05 15:47:04      LEVELS: [{SPREAD:0.0001 AMOUNT:100} {SPREAD:0.00015 AMOUNT:100} {SPREAD:0.0002 AMOUNT:100} {SPREAD:0.00025 AMOUNT:100} {SPREAD:0.0003 AMOUNT:100}]
+2020/04/05 15:47:04 validating trustlines...
+2020/04/05 15:47:04 trustlines valid
+2020/04/05 15:47:04 Starting the trader bot...
+2020/04/05 15:47:04 ----------------------------------------------------------------------------------------------------
+2020/04/05 15:47:04  (base) assetA=native, maxA=11999.99975000, trustA=math.MaxFloat64
+2020/04/05 15:47:04 (quote) assetB=COUPON:GBMMZMK2DC4FFP4CAI6KCVNCQ7WLO5A7DQU7EC7WGHRDQBZB763X4OQI, maxB=9915.99780000, trustB=30000.00000000
+2020/04/05 15:47:05 orderConstraints for trading pair XLM/COUPON: OrderConstraints[PricePrecision: 7, VolumePrecision: 7, MinBaseVolume: 0.0000001, MinQuoteVolume: <nil>]
+2020/04/05 15:47:05 liabilities after resetting
+2020/04/05 15:47:05 asset=base  , balance=11999.99975000, trust=math.MaxFloat64, minAccountBal=25.50000000, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
+2020/04/05 15:47:05 asset=quote , balance=9915.99780000, trust=30000.00000000, minAccountBal=9.91599780, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
+2020/04/05 15:47:05 returning kraken API key at index 0
+2020/04/05 15:47:06 (modifier: mid) price from exchange feed (kraken/XXLM/ZUSD/mid): bidPrice=0.042472, askPrice=0.042525, midPrice=0.042499, lastTradePrice=0.042454; price=0.042499
+2020/04/05 15:47:06 feedPair prices: feedA=1.00000000, feedB=0.04249900; price=23.52996541
+2020/04/05 15:47:06 returning kraken API key at index 0
+2020/04/05 15:47:06 (modifier: mid) price from exchange feed (kraken/XXLM/ZUSD/mid): bidPrice=0.042472, askPrice=0.042525, midPrice=0.042499, lastTradePrice=0.042454; price=0.042499
+2020/04/05 15:47:06 feedPair prices: feedA=0.04249900, feedB=1.00000000; price=0.04249900
+2020/04/05 15:47:06 offer | buy  | level=1 | curPriceQuote=0.04237376 | curAmtBase=1000.00000032 | pruning=false
+2020/04/05 15:47:06 offer | buy  | level=2 | curPriceQuote=0.04237164 | curAmtBase=999.99999954 | pruning=false
+2020/04/05 15:47:06 offer | buy  | level=3 | curPriceQuote=0.04236953 | curAmtBase=1000.00000037 | pruning=false
+2020/04/05 15:47:06 offer | buy  | level=4 | curPriceQuote=0.04236741 | curAmtBase=1000.00000091 | pruning=false
+2020/04/05 15:47:06 offer | buy  | level=5 | curPriceQuote=0.04236529 | curAmtBase=999.99999931 | pruning=false
+2020/04/05 15:47:06 offer | sell | level=1 | curPriceQuote=0.04238750 | curAmtBase=1000.00000000 | pruning=false
+2020/04/05 15:47:06 offer | sell | level=2 | curPriceQuote=0.04238960 | curAmtBase=1000.00000000 | pruning=false
+2020/04/05 15:47:06 offer | sell | level=3 | curPriceQuote=0.04239170 | curAmtBase=1000.00000000 | pruning=false
+2020/04/05 15:47:06 created 0 operations to prune excess offers
+2020/04/05 15:47:06 liabilities after resetting
+2020/04/05 15:47:06 asset=base  , balance=11999.99975000, trust=math.MaxFloat64, minAccountBal=25.50000000, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
+2020/04/05 15:47:06 asset=quote , balance=9915.99780000, trust=30000.00000000, minAccountBal=9.91599780, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
+2020/04/05 15:47:06 buy , done creating preceding offers (numLevelsConsumed=0, hitCapacityLimit=false, numOps=0, newTopOfferPrice=<nil>)
+2020/04/05 15:47:06 buy  | modify | old level=1 | new level = 1 | triggers=[price amount] | targetPriceQuote=0.04249475 | targetAmtBase=999.99999909 | curPriceQuote=0.04237376 | lowPriceQuote=0.04245230 | highPriceQuote=0.04253729 | curAmtBase=1000.00000032 | minAmtBase=1001.85240012 | maxAmtBase=1003.85811063
+2020/04/05 15:47:06 buy  | modify | old level=2 | new level = 2 | triggers=[price amount] | targetPriceQuote=0.04249263 | targetAmtBase=999.99999961 | curPriceQuote=0.04237164 | lowPriceQuote=0.04245018 | highPriceQuote=0.04253516 | curAmtBase=999.99999954 | minAmtBase=1001.85239813 | maxAmtBase=1003.85810863
+2020/04/05 15:47:06 buy  | modify | old level=3 | new level = 3 | triggers=[price amount] | targetPriceQuote=0.04249050 | targetAmtBase=999.99999984 | curPriceQuote=0.04236953 | lowPriceQuote=0.04244805 | highPriceQuote=0.04253303 | curAmtBase=1000.00000037 | minAmtBase=1001.85240008 | maxAmtBase=1003.85811059
+2020/04/05 15:47:06 buy  | modify | old level=4 | new level = 4 | triggers=[price amount] | targetPriceQuote=0.04248838 | targetAmtBase=999.99999977 | curPriceQuote=0.04236741 | lowPriceQuote=0.04244593 | highPriceQuote=0.04253091 | curAmtBase=1000.00000091 | minAmtBase=1001.85240175 | maxAmtBase=1003.85811226
+2020/04/05 15:47:06 buy  | modify | old level=5 | new level = 5 | triggers=[price amount] | targetPriceQuote=0.04248625 | targetAmtBase=999.99999942 | curPriceQuote=0.04236529 | lowPriceQuote=0.04244381 | highPriceQuote=0.04252878 | curAmtBase=999.99999931 | minAmtBase=1001.85239888 | maxAmtBase=1003.85810939
+2020/04/05 15:47:06 sell, done creating preceding offers (numLevelsConsumed=0, hitCapacityLimit=false, numOps=0, newTopOfferPrice=<nil>)
+2020/04/05 15:47:06 sell | modify | old level=1 | new level = 1 | triggers=[price] | targetPriceQuote=0.04250320 | targetAmtBase=1000.00000000 | curPriceQuote=0.04238750 | lowPriceQuote=0.04246070 | highPriceQuote=0.04254570 | curAmtBase=1000.00000000 | minAmtBase=999.00000000 | maxAmtBase=1001.00000000
+2020/04/05 15:47:06 sell | modify | old level=2 | new level = 2 | triggers=[price] | targetPriceQuote=0.04250540 | targetAmtBase=1000.00000000 | curPriceQuote=0.04238960 | lowPriceQuote=0.04246289 | highPriceQuote=0.04254791 | curAmtBase=1000.00000000 | minAmtBase=999.00000000 | maxAmtBase=1001.00000000
+2020/04/05 15:47:06 sell | modify | old level=3 | new level = 3 | triggers=[price] | targetPriceQuote=0.04250750 | targetAmtBase=1000.00000000 | curPriceQuote=0.04239170 | lowPriceQuote=0.04246499 | highPriceQuote=0.04255001 | curAmtBase=1000.00000000 | minAmtBase=999.00000000 | maxAmtBase=1001.00000000
+2020/04/05 15:47:06 sell | create | new level=4 | priceQuote=0.04250960 | amtBase=1000.00000000
+2020/04/05 15:47:06 sell | create | new level=5 | priceQuote=0.04251170 | amtBase=1000.00000000
+2020/04/05 15:47:06 liabilities at the end of a call to UpdateWithOps
+2020/04/05 15:47:06 asset=base  , balance=11999.99975000, trust=math.MaxFloat64, minAccountBal=25.50000000, buyingLiabilities=4999.99999773, sellingLiabilities=5001.00010000
+2020/04/05 15:47:06 asset=quote , balance=9915.99780000, trust=30000.00000000, minAccountBal=9.91599780, buyingLiabilities=212.53740000, sellingLiabilities=212.45251050
+2020/04/05 15:47:06 orderConstraintsFilter: selling, baseAmount=1000.00000000, quoteAmount=42.50320000, keep = true
+2020/04/05 15:47:06 orderConstraintsFilter: selling, baseAmount=1000.00000000, quoteAmount=42.50540000, keep = true
+2020/04/05 15:47:06 orderConstraintsFilter: selling, baseAmount=1000.00000000, quoteAmount=42.50750000, keep = true
+2020/04/05 15:47:06 orderConstraintsFilter: selling, baseAmount=1000.00000000, quoteAmount=42.50960000, keep = true
+2020/04/05 15:47:06 orderConstraintsFilter: selling, baseAmount=1000.00000000, quoteAmount=42.51170000, keep = true
+2020/04/05 15:47:06 orderConstraintsFilter:  buying, baseAmount=999.99999909, quoteAmount=42.49475050, keep = true
+2020/04/05 15:47:06 orderConstraintsFilter:  buying, baseAmount=999.99999961, quoteAmount=42.49262610, keep = true
+2020/04/05 15:47:06 orderConstraintsFilter:  buying, baseAmount=999.99999984, quoteAmount=42.49050190, keep = true
+2020/04/05 15:47:06 orderConstraintsFilter:  buying, baseAmount=999.99999977, quoteAmount=42.48837790, keep = true
+2020/04/05 15:47:06 orderConstraintsFilter:  buying, baseAmount=999.99999942, quoteAmount=42.48625410, keep = true
+2020/04/05 15:47:06 orderConstraintsFilter: dropped 0, kept 10 ops from original 10 ops, len(filteredOps) = 10
+2020/04/05 15:47:06 created 10 operations to update existing offers
+2020/04/05 15:47:06 reloading sequence number
+2020/04/05 15:47:06 lastFee <= maxOpFeeStroops; using last_ledger_base_fee of 100 stroops (maxOpFeeStroops = 5000)
+2020/04/05 15:47:06 tx XDR: AAAAADzq2buW63GJBDOp6y1RUs8z2YJPNOQUmqt6CrVQ70thAAAD6AAQS68AAAAFAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgAAAAAAAAADAAAAAAAAAAJDT1VQT04AAAAAAAAAAAAAWMyxWhi4Ur+CAjyhVaKH7Ld0Hxwp8gv2MeI4ByH/t34AAAACVAvkAAAAz4kAExLQAAAAAABTgmEAAAAAAAAAAwAAAAAAAAACQ09VUE9OAAAAAAAAAAAAAFjMsVoYuFK/ggI8oVWih+y3dB8cKfIL9jHiOAch/7d+AAAAAlQL5AAAAz4vAExLQAAAAAAAU4JiAAAAAAAAAAMAAAAAAAAAAkNPVVBPTgAAAAAAAAAAAABYzLFaGLhSv4ICPKFVoofst3QfHCnyC/Yx4jgHIf+3fgAAAAJUC+QAAABCawAGGoAAAAAAAFOCYwAAAAAAAAADAAAAAAAAAAJDT1VQT04AAAAAAAAAAAAAWMyxWhi4Ur+CAjyhVaKH7Ld0Hxwp8gv2MeI4ByH/t34AAAACVAvkAAAAz5EAExLQAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAACQ09VUE9OAAAAAAAAAAAAAFjMsVoYuFK/ggI8oVWih+y3dB8cKfIL9jHiOAch/7d+AAAAAlQL5AAABnydAJiWgAAAAAAAAAAAAAAAAAAAAAMAAAACQ09VUE9OAAAAAAAAAAAAAFjMsVoYuFK/ggI8oVWih+y3dB8cKfIL9jHiOAch/7d+AAAAAAAAAAAZVC8xAOBr8wAJiWgAAAAAAFOHgQAAAAAAAAADAAAAAkNPVVBPTgAAAAAAAAAAAABYzLFaGLhSv4ICPKFVoofst3QfHCnyC/Yx4jgHIf+3fgAAAAAAAAAAGVPcNQ4G7SUAmJaAAAAAAABTh4IAAAAAAAAAAwAAAAJDT1VQT04AAAAAAAAAAAAAWMyxWhi4Ur+CAjyhVaKH7Ld0Hxwp8gv2MeI4ByH/t34AAAAAAAAAABlTiTsHA42NAExLQAAAAAAAU4eDAAAAAAAAAAMAAAACQ09VUE9OAAAAAAAAAAAAAFjMsVoYuFK/ggI8oVWih+y3dB8cKfIL9jHiOAch/7d+AAAAAAAAAAAZUzZDDgdJDwCYloAAAAAAAFOCXQAAAAAAAAADAAAAAkNPVVBPTgAAAAAAAAAAAABYzLFaGLhSv4ICPKFVoofst3QfHCnyC/Yx4jgHIf+3fgAAAAAAAAAAGVLjTQOB3cEAJiWgAAAAAABTgl4AAAAAAAAAAVDvS2EAAABANgmbSkc3MCbo1aF1U69EfsGsjMS533RcOFh+OX1/GRai8oxv49gf3xIGyiiqzD6eTOn38cMH8INJefjsPBlCBQ==
+2020/04/05 15:47:06 submitting tx XDR to network (async)
+2020/04/05 15:47:16 (async) tx confirmation hash: 7c6bcd4d63431ff1f48736ef00911fce80747f9d4ae58f9fd8023f9b2269acb6
+2020/04/05 15:47:16 ----------------------------------------------------------------------------------------------------
+2020/04/05 15:47:16 sleeping for 4m48.444848514s...
+^CMakefile:45: recipe for target 'buysell' failed
+make: *** [buysell] Interrupt
+
+alec@miasrv ~/go/src/github.com/amissine/stellar_kelp_examples (master) $ 

@@ -3,81 +3,90 @@ if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
 inoremap <S-Tab> 	
-map! <D-v> *
 map  :cprevious
 map  :cnext
+nmap <D-v> "*P
+vmap <D-v> "-d"*P
+vmap <D-c> "*y
+vmap <D-x> "*d
 vmap gx <Plug>NetrwBrowseXVis
 nmap gx <Plug>NetrwBrowseX
-nnoremap <silent> <Plug>(go-iferr) :call go#iferr#Generate()
-nnoremap <silent> <Plug>(go-alternate-split) :call go#alternate#Switch(0, "split")
-nnoremap <silent> <Plug>(go-alternate-vertical) :call go#alternate#Switch(0, "vsplit")
-nnoremap <silent> <Plug>(go-alternate-edit) :call go#alternate#Switch(0, "edit")
-nnoremap <silent> <Plug>(go-vet) :call go#lint#Vet(!g:go_jump_to_error)
-nnoremap <silent> <Plug>(go-lint) :call go#lint#Golint(!g:go_jump_to_error)
-nnoremap <silent> <Plug>(go-metalinter) :call go#lint#Gometa(!g:go_jump_to_error, 0)
-nnoremap <silent> <Plug>(go-doc-browser) :call go#doc#OpenBrowser()
-nnoremap <silent> <Plug>(go-doc-split) :call go#doc#Open("new", "split")
-nnoremap <silent> <Plug>(go-doc-vertical) :call go#doc#Open("vnew", "vsplit")
-nnoremap <silent> <Plug>(go-doc-tab) :call go#doc#Open("tabnew", "tabe")
-nnoremap <silent> <Plug>(go-doc) :call go#doc#Open("new", "split")
-nnoremap <silent> <Plug>(go-def-stack-clear) :call go#def#StackClear()
-nnoremap <silent> <Plug>(go-def-stack) :call go#def#Stack()
-nnoremap <silent> <Plug>(go-def-pop) :call go#def#StackPop()
-nnoremap <silent> <Plug>(go-def-type-tab) :call go#def#Jump("tab", 1)
-nnoremap <silent> <Plug>(go-def-type-split) :call go#def#Jump("split", 1)
-nnoremap <silent> <Plug>(go-def-type-vertical) :call go#def#Jump("vsplit", 1)
-nnoremap <silent> <Plug>(go-def-type) :call go#def#Jump('', 1)
-nnoremap <silent> <Plug>(go-def-tab) :call go#def#Jump("tab", 0)
-nnoremap <silent> <Plug>(go-def-split) :call go#def#Jump("split", 0)
-nnoremap <silent> <Plug>(go-def-vertical) :call go#def#Jump("vsplit", 0)
-nnoremap <silent> <Plug>(go-def) :call go#def#Jump('', 0)
-nnoremap <silent> <Plug>(go-decls-dir) :call go#decls#Decls(1, '')
-nnoremap <silent> <Plug>(go-decls) :call go#decls#Decls(0, '')
-nnoremap <silent> <Plug>(go-rename) :call go#rename#Rename(!g:go_jump_to_error)
-nnoremap <silent> <Plug>(go-sameids-toggle) :call go#guru#ToggleSameIds()
-nnoremap <silent> <Plug>(go-whicherrs) :call go#guru#Whicherrs(-1)
-nnoremap <silent> <Plug>(go-pointsto) :call go#guru#PointsTo(-1)
-nnoremap <silent> <Plug>(go-sameids) :call go#guru#SameIds(1)
-nnoremap <silent> <Plug>(go-referrers) :call go#guru#Referrers(-1)
-nnoremap <silent> <Plug>(go-channelpeers) :call go#guru#ChannelPeers(-1)
-xnoremap <silent> <Plug>(go-freevars) :call go#guru#Freevars(0)
-nnoremap <silent> <Plug>(go-callstack) :call go#guru#Callstack(-1)
-nnoremap <silent> <Plug>(go-describe) :call go#guru#Describe(-1)
-nnoremap <silent> <Plug>(go-callers) :call go#guru#Callers(-1)
-nnoremap <silent> <Plug>(go-callees) :call go#guru#Callees(-1)
-nnoremap <silent> <Plug>(go-implements) :call go#guru#Implements(-1)
-nnoremap <silent> <Plug>(go-imports) :call go#fmt#Format(1)
-nnoremap <silent> <Plug>(go-import) :call go#import#SwitchImport(1, '', expand('<cword>'), '')
-nnoremap <silent> <Plug>(go-info) :call go#tool#Info(1)
-nnoremap <silent> <Plug>(go-deps) :call go#tool#Deps()
-nnoremap <silent> <Plug>(go-files) :call go#tool#Files()
-nnoremap <silent> <Plug>(go-coverage-browser) :call go#coverage#Browser(!g:go_jump_to_error)
-nnoremap <silent> <Plug>(go-coverage-toggle) :call go#coverage#BufferToggle(!g:go_jump_to_error)
-nnoremap <silent> <Plug>(go-coverage-clear) :call go#coverage#Clear()
-nnoremap <silent> <Plug>(go-coverage) :call go#coverage#Buffer(!g:go_jump_to_error)
-nnoremap <silent> <Plug>(go-test-compile) :call go#test#Test(!g:go_jump_to_error, 1)
-nnoremap <silent> <Plug>(go-test-func) :call go#test#Func(!g:go_jump_to_error)
-nnoremap <silent> <Plug>(go-test) :call go#test#Test(!g:go_jump_to_error, 0)
-nnoremap <silent> <Plug>(go-install) :call go#cmd#Install(!g:go_jump_to_error)
-nnoremap <silent> <Plug>(go-generate) :call go#cmd#Generate(!g:go_jump_to_error)
-nnoremap <silent> <Plug>(go-build) :call go#cmd#Build(!g:go_jump_to_error)
+nnoremap <silent> <Plug>(go-diagnostics) :call go#lint#Diagnostics(!g:go_jump_to_error)
+vmap <BS> "-d
 nnoremap <silent> <Plug>(go-run) :call go#cmd#Run(!g:go_jump_to_error)
+nnoremap <silent> <Plug>(go-build) :call go#cmd#Build(!g:go_jump_to_error)
+nnoremap <silent> <Plug>(go-generate) :call go#cmd#Generate(!g:go_jump_to_error)
+nnoremap <silent> <Plug>(go-install) :call go#cmd#Install(!g:go_jump_to_error)
+nnoremap <silent> <Plug>(go-test) :call go#test#Test(!g:go_jump_to_error, 0)
+nnoremap <silent> <Plug>(go-test-func) :call go#test#Func(!g:go_jump_to_error)
+nnoremap <silent> <Plug>(go-test-compile) :call go#test#Test(!g:go_jump_to_error, 1)
+nnoremap <silent> <Plug>(go-coverage) :call go#coverage#Buffer(!g:go_jump_to_error)
+nnoremap <silent> <Plug>(go-coverage-clear) :call go#coverage#Clear()
+nnoremap <silent> <Plug>(go-coverage-toggle) :call go#coverage#BufferToggle(!g:go_jump_to_error)
+nnoremap <silent> <Plug>(go-coverage-browser) :call go#coverage#Browser(!g:go_jump_to_error)
+nnoremap <silent> <Plug>(go-files) :call go#tool#Files()
+nnoremap <silent> <Plug>(go-deps) :call go#tool#Deps()
+nnoremap <silent> <Plug>(go-info) :call go#tool#Info(1)
+nnoremap <silent> <Plug>(go-import) :call go#import#SwitchImport(1, '', expand('<cword>'), '')
+nnoremap <silent> <Plug>(go-imports) :call go#fmt#Format(1)
+nnoremap <silent> <Plug>(go-implements) :call go#guru#Implements(-1)
+nnoremap <silent> <Plug>(go-callees) :call go#guru#Callees(-1)
+nnoremap <silent> <Plug>(go-callers) :call go#guru#Callers(-1)
+nnoremap <silent> <Plug>(go-describe) :call go#guru#Describe(-1)
+nnoremap <silent> <Plug>(go-callstack) :call go#guru#Callstack(-1)
+xnoremap <silent> <Plug>(go-freevars) :call go#guru#Freevars(0)
+nnoremap <silent> <Plug>(go-channelpeers) :call go#guru#ChannelPeers(-1)
+nnoremap <silent> <Plug>(go-referrers) :call go#referrers#Referrers(-1)
+nnoremap <silent> <Plug>(go-sameids) :call go#guru#SameIds(1)
+nnoremap <silent> <Plug>(go-pointsto) :call go#guru#PointsTo(-1)
+nnoremap <silent> <Plug>(go-whicherrs) :call go#guru#Whicherrs(-1)
+nnoremap <silent> <Plug>(go-sameids-toggle) :call go#guru#ToggleSameIds()
+nnoremap <silent> <Plug>(go-rename) :call go#rename#Rename(!g:go_jump_to_error)
+nnoremap <silent> <Plug>(go-decls) :call go#decls#Decls(0, '')
+nnoremap <silent> <Plug>(go-decls-dir) :call go#decls#Decls(1, '')
+nnoremap <silent> <Plug>(go-def) :call go#def#Jump('', 0)
+nnoremap <silent> <Plug>(go-def-vertical) :call go#def#Jump("vsplit", 0)
+nnoremap <silent> <Plug>(go-def-split) :call go#def#Jump("split", 0)
+nnoremap <silent> <Plug>(go-def-tab) :call go#def#Jump("tab", 0)
+nnoremap <silent> <Plug>(go-def-type) :call go#def#Jump('', 1)
+nnoremap <silent> <Plug>(go-def-type-vertical) :call go#def#Jump("vsplit", 1)
+nnoremap <silent> <Plug>(go-def-type-split) :call go#def#Jump("split", 1)
+nnoremap <silent> <Plug>(go-def-type-tab) :call go#def#Jump("tab", 1)
+nnoremap <silent> <Plug>(go-def-pop) :call go#def#StackPop()
+nnoremap <silent> <Plug>(go-def-stack) :call go#def#Stack()
+nnoremap <silent> <Plug>(go-def-stack-clear) :call go#def#StackClear()
+nnoremap <silent> <Plug>(go-doc) :call go#doc#Open("new", "split")
+nnoremap <silent> <Plug>(go-doc-tab) :call go#doc#Open("tabnew", "tabe")
+nnoremap <silent> <Plug>(go-doc-vertical) :call go#doc#Open("vnew", "vsplit")
+nnoremap <silent> <Plug>(go-doc-split) :call go#doc#Open("new", "split")
+nnoremap <silent> <Plug>(go-doc-browser) :call go#doc#OpenBrowser()
+nnoremap <silent> <Plug>(go-metalinter) :call go#lint#Gometa(!g:go_jump_to_error, 0)
+nnoremap <silent> <Plug>(go-lint) :call go#lint#Golint(!g:go_jump_to_error)
+nnoremap <silent> <Plug>(go-vet) :call go#lint#Vet(!g:go_jump_to_error)
+nnoremap <silent> <Plug>(go-alternate-edit) :call go#alternate#Switch(0, "edit")
+nnoremap <silent> <Plug>(go-alternate-vertical) :call go#alternate#Switch(0, "vsplit")
+nnoremap <silent> <Plug>(go-alternate-split) :call go#alternate#Switch(0, "split")
+nnoremap <silent> <Plug>(go-iferr) :call go#iferr#Generate()
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())
-vmap <BS> "-d
-vmap <D-x> "*d
-vmap <D-c> "*y
-vmap <D-v> "-d"*P
-nmap <D-v> "*P
+map <C-M> :cprevious
+map <C-N> :cnext
+map! <D-v> *
 let &cpo=s:cpo_save
 unlet s:cpo_save
 set autowrite
 set backspace=indent,eol,start
 set errorformat=%-G#\ %.%#,%-G%.%#panic:\ %m,%Ecan't\ load\ package:\ %m,%A%f:%l:%c:\ %m,%A%f:%l:\ %m,%C%*\\s%m,%-G%.%#
 set expandtab
+set fileencodings=ucs-bom,utf-8,default,latin1
 set helplang=en
+set nomodeline
+set printoptions=paper:letter
+set ruler
 set runtimepath=~/.vim,~/.vim/pack/plugins/start/vim-javascript,~/.vim/pack/plugins/start/vim-go,~/.vim/pack/plugins/start/typescript-vim,/usr/local/share/vim/vimfiles,/usr/local/share/vim/vim81,~/.vim/pack/plugins/start/vim-javascript/after,/usr/local/share/vim/vimfiles/after,~/.vim/after
 set shiftwidth=2
+set shortmess=filnxtToO
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
 set tabstop=2
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
@@ -135,6 +144,7 @@ setlocal cryptmethod=
 setlocal nocursorbind
 setlocal nocursorcolumn
 setlocal nocursorline
+setlocal cursorlineopt=both
 setlocal define=
 setlocal dictionary=
 setlocal nodiff
@@ -196,6 +206,7 @@ setlocal noscrollbind
 setlocal scrolloff=-1
 setlocal shiftwidth=2
 setlocal noshortname
+setlocal showbreak=
 setlocal sidescrolloff=-1
 setlocal signcolumn=auto
 setlocal nosmartindent
@@ -213,6 +224,7 @@ setlocal syntax=make
 endif
 setlocal tabstop=2
 setlocal tagcase=
+setlocal tagfunc=
 setlocal tags=
 setlocal termwinkey=
 setlocal termwinscroll=10000
@@ -223,22 +235,21 @@ setlocal noundofile
 setlocal undolevels=-123456
 setlocal varsofttabstop=
 setlocal vartabstop=
+setlocal wincolor=
 setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 29
 normal! zo
-36
+43
 normal! zo
-39
-normal! zo
-let s:l = 19 - ((18 * winheight(0) + 23) / 46)
+let s:l = 86 - ((36 * winheight(0) + 23) / 46)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-19
-normal! 0
+86
+normal! 03|
 tabnext
 edit cmd/root.go
 set splitbelow splitright
@@ -279,7 +290,11 @@ xnoremap <buffer> <silent> ic :call go#textobj#Comment('i')
 onoremap <buffer> <silent> ic :call go#textobj#Comment('i')
 xnoremap <buffer> <silent> if :call go#textobj#Function('i')
 onoremap <buffer> <silent> if :call go#textobj#Function('i')
+nnoremap <buffer> <silent> <C-T> :call go#def#StackPop(v:count1)
+nnoremap <buffer> <silent> <C-W>] :call go#def#Jump("split", 0)
+nnoremap <buffer> <silent> <C-W><C-]> :call go#def#Jump("split", 0)
 nnoremap <buffer> <silent> <C-LeftMouse> <LeftMouse>:GoDef
+nnoremap <buffer> <silent> <C-]> :GoDef
 let &cpo=s:cpo_save
 unlet s:cpo_save
 setlocal keymap=
@@ -309,6 +324,7 @@ setlocal cryptmethod=
 setlocal nocursorbind
 setlocal nocursorcolumn
 setlocal nocursorline
+setlocal cursorlineopt=both
 setlocal define=
 setlocal dictionary=
 setlocal nodiff
@@ -370,6 +386,7 @@ setlocal noscrollbind
 setlocal scrolloff=-1
 setlocal shiftwidth=2
 setlocal noshortname
+setlocal showbreak=
 setlocal sidescrolloff=-1
 setlocal signcolumn=auto
 setlocal nosmartindent
@@ -387,6 +404,7 @@ setlocal syntax=go
 endif
 setlocal tabstop=2
 setlocal tagcase=
+setlocal tagfunc=
 setlocal tags=
 setlocal termwinkey=
 setlocal termwinscroll=10000
@@ -397,16 +415,17 @@ setlocal noundofile
 setlocal undolevels=-123456
 setlocal varsofttabstop=
 setlocal vartabstop=
+setlocal wincolor=
 setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 11 - ((10 * winheight(0) + 15) / 30)
+let s:l = 1 - ((0 * winheight(0) + 15) / 30)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-11
-normal! 042|
+1
+normal! 0
 lcd ~/go/src/github.com/amissine/stellar_kelp_examples
 wincmd w
 argglobal
@@ -434,7 +453,11 @@ xnoremap <buffer> <silent> ic :call go#textobj#Comment('i')
 onoremap <buffer> <silent> ic :call go#textobj#Comment('i')
 xnoremap <buffer> <silent> if :call go#textobj#Function('i')
 onoremap <buffer> <silent> if :call go#textobj#Function('i')
+nnoremap <buffer> <silent> <C-T> :call go#def#StackPop(v:count1)
+nnoremap <buffer> <silent> <C-W>] :call go#def#Jump("split", 0)
+nnoremap <buffer> <silent> <C-W><C-]> :call go#def#Jump("split", 0)
 nnoremap <buffer> <silent> <C-LeftMouse> <LeftMouse>:GoDef
+nnoremap <buffer> <silent> <C-]> :GoDef
 let &cpo=s:cpo_save
 unlet s:cpo_save
 setlocal keymap=
@@ -464,11 +487,12 @@ setlocal cryptmethod=
 setlocal nocursorbind
 setlocal nocursorcolumn
 setlocal nocursorline
+setlocal cursorlineopt=both
 setlocal define=
 setlocal dictionary=
 setlocal nodiff
 setlocal equalprg=
-setlocal errorformat=%-G#\ %.%#,%-G%.%#panic:\ %m,%Ecan't\ load\ package:\ %m,%A%f:%l:%c:\ %m,%A%f:%l:\ %m,%C%*\\s%m,%-G%.%#
+setlocal errorformat=%-G#\ %.%#,%-G%.%#panic:\ %m,%Ecan't\ load\ package:\ %m,%A%\\%%(%[%^:]%\\+:\ %\\)%\\?%f:%l:%c:\ %m,%A%\\%%(%[%^:]%\\+:\ %\\)%\\?%f:%l:\ %m,%C%*\\s%m,%-G%.%#
 setlocal noexpandtab
 if &filetype != 'go'
 setlocal filetype=go
@@ -525,6 +549,7 @@ setlocal noscrollbind
 setlocal scrolloff=-1
 setlocal shiftwidth=2
 setlocal noshortname
+setlocal showbreak=
 setlocal sidescrolloff=-1
 setlocal signcolumn=auto
 setlocal nosmartindent
@@ -542,6 +567,7 @@ setlocal syntax=go
 endif
 setlocal tabstop=2
 setlocal tagcase=
+setlocal tagfunc=
 setlocal tags=
 setlocal termwinkey=
 setlocal termwinscroll=10000
@@ -552,18 +578,18 @@ setlocal noundofile
 setlocal undolevels=-123456
 setlocal varsofttabstop=
 setlocal vartabstop=
+setlocal wincolor=
 setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 14 - ((13 * winheight(0) + 7) / 14)
+let s:l = 10 - ((9 * winheight(0) + 7) / 14)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-14
-normal! 0
+10
+normal! 012|
 wincmd w
-2wincmd w
 exe '1resize ' . ((&lines * 30 + 24) / 48)
 exe '2resize ' . ((&lines * 14 + 24) / 48)
 tabnext
@@ -600,7 +626,11 @@ xnoremap <buffer> <silent> ic :call go#textobj#Comment('i')
 onoremap <buffer> <silent> ic :call go#textobj#Comment('i')
 xnoremap <buffer> <silent> if :call go#textobj#Function('i')
 onoremap <buffer> <silent> if :call go#textobj#Function('i')
+nnoremap <buffer> <silent> <C-T> :call go#def#StackPop(v:count1)
+nnoremap <buffer> <silent> <C-W>] :call go#def#Jump("split", 0)
+nnoremap <buffer> <silent> <C-W><C-]> :call go#def#Jump("split", 0)
 nnoremap <buffer> <silent> <C-LeftMouse> <LeftMouse>:GoDef
+nnoremap <buffer> <silent> <C-]> :GoDef
 let &cpo=s:cpo_save
 unlet s:cpo_save
 setlocal keymap=
@@ -630,6 +660,7 @@ setlocal cryptmethod=
 setlocal nocursorbind
 setlocal nocursorcolumn
 setlocal nocursorline
+setlocal cursorlineopt=both
 setlocal define=
 setlocal dictionary=
 setlocal nodiff
@@ -691,6 +722,7 @@ setlocal noscrollbind
 setlocal scrolloff=-1
 setlocal shiftwidth=2
 setlocal noshortname
+setlocal showbreak=
 setlocal sidescrolloff=-1
 setlocal signcolumn=auto
 setlocal nosmartindent
@@ -708,6 +740,7 @@ setlocal syntax=go
 endif
 setlocal tabstop=2
 setlocal tagcase=
+setlocal tagfunc=
 setlocal tags=
 setlocal termwinkey=
 setlocal termwinscroll=10000
@@ -718,6 +751,7 @@ setlocal noundofile
 setlocal undolevels=-123456
 setlocal varsofttabstop=
 setlocal vartabstop=
+setlocal wincolor=
 setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
@@ -763,7 +797,11 @@ xnoremap <buffer> <silent> ic :call go#textobj#Comment('i')
 onoremap <buffer> <silent> ic :call go#textobj#Comment('i')
 xnoremap <buffer> <silent> if :call go#textobj#Function('i')
 onoremap <buffer> <silent> if :call go#textobj#Function('i')
+nnoremap <buffer> <silent> <C-T> :call go#def#StackPop(v:count1)
+nnoremap <buffer> <silent> <C-W>] :call go#def#Jump("split", 0)
+nnoremap <buffer> <silent> <C-W><C-]> :call go#def#Jump("split", 0)
 nnoremap <buffer> <silent> <C-LeftMouse> <LeftMouse>:GoDef
+nnoremap <buffer> <silent> <C-]> :GoDef
 let &cpo=s:cpo_save
 unlet s:cpo_save
 setlocal keymap=
@@ -793,6 +831,7 @@ setlocal cryptmethod=
 setlocal nocursorbind
 setlocal nocursorcolumn
 setlocal nocursorline
+setlocal cursorlineopt=both
 setlocal define=
 setlocal dictionary=
 setlocal nodiff
@@ -854,6 +893,7 @@ setlocal noscrollbind
 setlocal scrolloff=-1
 setlocal shiftwidth=2
 setlocal noshortname
+setlocal showbreak=
 setlocal sidescrolloff=-1
 setlocal signcolumn=auto
 setlocal nosmartindent
@@ -871,6 +911,7 @@ setlocal syntax=go
 endif
 setlocal tabstop=2
 setlocal tagcase=
+setlocal tagfunc=
 setlocal tags=
 setlocal termwinkey=
 setlocal termwinscroll=10000
@@ -881,16 +922,17 @@ setlocal noundofile
 setlocal undolevels=-123456
 setlocal varsofttabstop=
 setlocal vartabstop=
+setlocal wincolor=
 setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 13 - ((2 * winheight(0) + 23) / 46)
+let s:l = 13 - ((10 * winheight(0) + 23) / 46)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 13
-normal! 066|
+normal! 0
 lcd ~/go/src/github.com/amissine/stellar_kelp_examples
 tabnext
 edit ~/go/src/github.com/amissine/stellar_kelp_examples/cmd/getinfo.go
@@ -926,7 +968,11 @@ xnoremap <buffer> <silent> ic :call go#textobj#Comment('i')
 onoremap <buffer> <silent> ic :call go#textobj#Comment('i')
 xnoremap <buffer> <silent> if :call go#textobj#Function('i')
 onoremap <buffer> <silent> if :call go#textobj#Function('i')
+nnoremap <buffer> <silent> <C-T> :call go#def#StackPop(v:count1)
+nnoremap <buffer> <silent> <C-W>] :call go#def#Jump("split", 0)
+nnoremap <buffer> <silent> <C-W><C-]> :call go#def#Jump("split", 0)
 nnoremap <buffer> <silent> <C-LeftMouse> <LeftMouse>:GoDef
+nnoremap <buffer> <silent> <C-]> :GoDef
 let &cpo=s:cpo_save
 unlet s:cpo_save
 setlocal keymap=
@@ -956,6 +1002,7 @@ setlocal cryptmethod=
 setlocal nocursorbind
 setlocal nocursorcolumn
 setlocal nocursorline
+setlocal cursorlineopt=both
 setlocal define=
 setlocal dictionary=
 setlocal nodiff
@@ -1017,6 +1064,7 @@ setlocal noscrollbind
 setlocal scrolloff=-1
 setlocal shiftwidth=2
 setlocal noshortname
+setlocal showbreak=
 setlocal sidescrolloff=-1
 setlocal signcolumn=auto
 setlocal nosmartindent
@@ -1034,6 +1082,7 @@ setlocal syntax=go
 endif
 setlocal tabstop=2
 setlocal tagcase=
+setlocal tagfunc=
 setlocal tags=
 setlocal termwinkey=
 setlocal termwinscroll=10000
@@ -1044,6 +1093,7 @@ setlocal noundofile
 setlocal undolevels=-123456
 setlocal varsofttabstop=
 setlocal vartabstop=
+setlocal wincolor=
 setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
@@ -1053,7 +1103,7 @@ if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 28
-normal! 036|
+normal! 0
 tabnext
 edit ~/go/src/github.com/amissine/stellar_kelp_examples/go/cfg_trader.go
 set splitbelow splitright
@@ -1088,7 +1138,11 @@ xnoremap <buffer> <silent> ic :call go#textobj#Comment('i')
 onoremap <buffer> <silent> ic :call go#textobj#Comment('i')
 xnoremap <buffer> <silent> if :call go#textobj#Function('i')
 onoremap <buffer> <silent> if :call go#textobj#Function('i')
+nnoremap <buffer> <silent> <C-T> :call go#def#StackPop(v:count1)
+nnoremap <buffer> <silent> <C-W>] :call go#def#Jump("split", 0)
+nnoremap <buffer> <silent> <C-W><C-]> :call go#def#Jump("split", 0)
 nnoremap <buffer> <silent> <C-LeftMouse> <LeftMouse>:GoDef
+nnoremap <buffer> <silent> <C-]> :GoDef
 let &cpo=s:cpo_save
 unlet s:cpo_save
 setlocal keymap=
@@ -1118,6 +1172,7 @@ setlocal cryptmethod=
 setlocal nocursorbind
 setlocal nocursorcolumn
 setlocal nocursorline
+setlocal cursorlineopt=both
 setlocal define=
 setlocal dictionary=
 setlocal nodiff
@@ -1179,6 +1234,7 @@ setlocal noscrollbind
 setlocal scrolloff=-1
 setlocal shiftwidth=2
 setlocal noshortname
+setlocal showbreak=
 setlocal sidescrolloff=-1
 setlocal signcolumn=auto
 setlocal nosmartindent
@@ -1196,6 +1252,7 @@ setlocal syntax=go
 endif
 setlocal tabstop=2
 setlocal tagcase=
+setlocal tagfunc=
 setlocal tags=
 setlocal termwinkey=
 setlocal termwinscroll=10000
@@ -1206,6 +1263,7 @@ setlocal noundofile
 setlocal undolevels=-123456
 setlocal varsofttabstop=
 setlocal vartabstop=
+setlocal wincolor=
 setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
@@ -1226,26 +1284,26 @@ exe s:l
 normal! zt
 76
 normal! 0
-tabnext 2
+tabnext 1
 set stal=1
-badd +41 ~/go/src/github.com/amissine/stellar_kelp_examples/Makefile
+badd +0 ~/go/src/github.com/amissine/stellar_kelp_examples/Makefile
+badd +7 ~/go/src/github.com/amissine/stellar_kelp_examples/cmd/root.go
+badd +5 ~/go/src/github.com/amissine/stellar_kelp_examples/cmd/addaccount.go
+badd +34 ~/go/src/github.com/amissine/stellar_kelp_examples/cmd/fundaccount.go
+badd +36 ~/go/src/github.com/amissine/stellar_kelp_examples/cmd/getinfo.go
+badd +1 ~/go/src/github.com/amissine/stellar_kelp_examples/go/cfg_trader.go
+badd +10 ~/go/src/github.com/amissine/stellar_kelp_examples/main.go
 badd +5 ~/go/src/github.com/amissine/stellar_kelp_examples/buysell.sh
 badd +5 ~/go/src/github.com/amissine/stellar_kelp_examples/util/common.sh
 badd +1 ~/go/src/github.com/amissine/stellar_kelp_examples/cfg/trader.cfg
-badd +0 ~/go/src/github.com/amissine/stellar_kelp_examples/cfg/buysell.cfg
+badd +1 ~/go/src/github.com/amissine/stellar_kelp_examples/cfg/buysell.cfg
 badd +19 ~/go/src/github.com/amissine/stellar_kelp_examples/.gitignore
-badd +0 ~/go/src/github.com/amissine/stellar_kelp_examples/sh/cfg_buysell.sh
+badd +1 ~/go/src/github.com/amissine/stellar_kelp_examples/sh/cfg_buysell.sh
 badd +6 ~/go/src/github.com/amissine/stellar_kelp_examples/sh/cfg_trader.sh
-badd +1 ~/go/src/github.com/amissine/stellar_kelp_examples/go/cfg_trader.go
 badd +21 ~/go/src/github.com/stellar/go/xdr/xdr_generated.go
 badd +9 ~/go/src/github.com/stellar/go/keypair/from_address.go
 badd +6 ~/go/src/github.com/sirupsen/logrus/terminal_check_bsd.go
-badd +0 ~/go/src/github.com/amissine/stellar_kelp_examples/go/cfg.go
-badd +13 ~/go/src/github.com/amissine/stellar_kelp_examples/main.go
-badd +22 ~/go/src/github.com/amissine/stellar_kelp_examples/cmd/root.go
-badd +36 ~/go/src/github.com/amissine/stellar_kelp_examples/cmd/getinfo.go
-badd +5 ~/go/src/github.com/amissine/stellar_kelp_examples/cmd/addaccount.go
-badd +34 ~/go/src/github.com/amissine/stellar_kelp_examples/cmd/fundaccount.go
+badd +1 ~/go/src/github.com/amissine/stellar_kelp_examples/go/cfg.go
 badd +1183 ~/go/src/github.com/amissine/stellar_kelp_examples/vendor/github.com/spf13/cobra/command.go
 badd +131 ~/go/src/github.com/amissine/stellar_kelp_examples/vendor/github.com/spf13/pflag/flag.go
 badd +65 ~/go/src/github.com/amissine/stellar_kelp_examples/vendor/github.com/spf13/pflag/string.go
