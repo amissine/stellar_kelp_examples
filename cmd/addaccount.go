@@ -22,7 +22,7 @@ var addaccountCmd = &cobra.Command{ // {{{1
 	Long: `Adds new account, returns its address and seed. If the accountSeed flag 
 is given, it specifies the source account that funds the new account. If the amount
 flag is given, it specifies the amount of XLM to fund the new account. Otherwise,
-the default amount is 500 XLM.
+the default amount is 5000 XLM.
 
 Without the accountSeed flag, a new source account gets created and funded by the
 friendbot. If the amount flag is given, it is being ignored.`,
@@ -44,7 +44,7 @@ friendbot. If the amount flag is given, it is being ignored.`,
 func init() { // {{{1
 	options := inputs{}
 	options.accountSeed = addaccountCmd.Flags().StringP("accountSeed", "", "", "the seed of the source account")
-	options.amount = addaccountCmd.Flags().StringP("amount", "", "500", "the amount of XLM to fund the new account")
+	options.amount = addaccountCmd.Flags().StringP("amount", "", "5000", "the amount of XLM to fund the new account")
 
 	addaccountCmd.Run = func(ccmd *cobra.Command, args []string) {
 		addaccountCmdRun(options)

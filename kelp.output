@@ -1,227 +1,302 @@
-alec@miasrv:~/go/src/github.com/amissine/stellar_kelp_examples$ make
-2020/04/05 14:55:15 Starting Kelp Trader: master:ui-astilectron-vendor-7-g5a5967c7 [5a5967c78e087023ac96bf64e5683a52ff5af7ae]
-2020/04/05 14:55:15 will run unbounded iterations
-2020/04/05 14:55:15 configs:
-2020/04/05 14:55:15      SOURCE_SECRET_SEED: 
-2020/04/05 14:55:15      TRADING_SECRET_SEED: [secret key to account GA6OVWN3S3VXDCIEGOU6WLKRKLHTHWMCJ42OIFE2VN5AVNKQ55FWCA3G]
-2020/04/05 14:55:15      ASSET_CODE_A: XLM
-2020/04/05 14:55:15      ISSUER_A: 
-2020/04/05 14:55:15      ASSET_CODE_B: COUPON
-2020/04/05 14:55:15      ISSUER_B: GBMMZMK2DC4FFP4CAI6KCVNCQ7WLO5A7DQU7EC7WGHRDQBZB763X4OQI
-2020/04/05 14:55:15      TICK_INTERVAL_SECONDS: 300
-2020/04/05 14:55:15      MAX_TICK_DELAY_MILLIS: 0
-2020/04/05 14:55:15      DELETE_CYCLES_THRESHOLD: 0
-2020/04/05 14:55:15      SUBMIT_MODE: both
-2020/04/05 14:55:15      FILL_TRACKER_SLEEP_MILLIS: 0
-2020/04/05 14:55:15      FILL_TRACKER_DELETE_CYCLES_THRESHOLD: 0
-2020/04/05 14:55:15      FILL_TRACKER_LAST_TRADE_CURSOR_OVERRIDE: 
-2020/04/05 14:55:15      HORIZON_URL: https://horizon-testnet.stellar.org
-2020/04/05 14:55:15      CCXT_REST_URL: <nil>
-2020/04/05 14:55:15      FEE: 
-2020/04/05 14:55:15          CAPACITY_TRIGGER: 0.8
-2020/04/05 14:55:15          PERCENTILE: 90
-2020/04/05 14:55:15          MAX_OP_FEE_STROOPS: 5000
-2020/04/05 14:55:15      CENTRALIZED_PRICE_PRECISION_OVERRIDE: <nil>
-2020/04/05 14:55:15      CENTRALIZED_VOLUME_PRECISION_OVERRIDE: <nil>
-2020/04/05 14:55:15      CENTRALIZED_MIN_BASE_VOLUME_OVERRIDE: <nil>
-2020/04/05 14:55:15      CENTRALIZED_MIN_QUOTE_VOLUME_OVERRIDE: <nil>
-2020/04/05 14:55:15      POSTGRES_DB: <nil>
-2020/04/05 14:55:15      FILTERS: []
-2020/04/05 14:55:15      ALERT_TYPE: 
-2020/04/05 14:55:15      ALERT_API_KEY: 
-2020/04/05 14:55:15      MONITORING_PORT: 0
-2020/04/05 14:55:15      MONITORING_TLS_CERT: 
-2020/04/05 14:55:15      MONITORING_TLS_KEY: 
-2020/04/05 14:55:15      GOOGLE_CLIENT_ID: 
-2020/04/05 14:55:15      GOOGLE_CLIENT_SECRET: 
-2020/04/05 14:55:15      ACCEPTABLE_GOOGLE_EMAILS: 
-2020/04/05 14:55:15      TRADING_EXCHANGE: 
-2020/04/05 14:55:15      EXCHANGE_API_KEYS: 
-2020/04/05 14:55:15      EXCHANGE_PARAMS: 
-2020/04/05 14:55:15      EXCHANGE_HEADERS: 
-2020/04/05 14:55:15 Trading XLM: for COUPON:GBMMZMK2DC4FFP4CAI6KCVNCQ7WLO5A7DQU7EC7WGHRDQBZB763X4OQI
-2020/04/05 14:55:15 Kelp sets the `X-App-Name` and `X-App-Version` headers on requests made to Horizon. These headers help us track overall Kelp usage, so that we can learn about general usage patterns and adapt Kelp to be more useful in the future. These can be turned off using the `--no-headers` flag. See `kelp trade --help` for more information.
-2020/04/05 14:55:15 using CCXT-rest URL: http://localhost:3000
-2020/04/05 14:55:15 Using network passphrase: Test SDF Network ; September 2015
-2020/04/05 14:55:15 No Source Account Set
-2020/04/05 14:55:15 Making strategy: buysell
-2020/04/05 14:55:15 configs:
-2020/04/05 14:55:15      PRICE_TOLERANCE: 0.001
-2020/04/05 14:55:15      AMOUNT_TOLERANCE: 0.001
-2020/04/05 14:55:15      RATE_OFFSET_PERCENT: 0
-2020/04/05 14:55:15      RATE_OFFSET: 0
-2020/04/05 14:55:15      RATE_OFFSET_PERCENT_FIRST: true
-2020/04/05 14:55:15      AMOUNT_OF_A_BASE: 10
-2020/04/05 14:55:15      DATA_TYPE_A: exchange
-2020/04/05 14:55:15      DATA_FEED_A_URL: kraken/XXLM/ZUSD/mid
-2020/04/05 14:55:15      DATA_TYPE_B: fixed
-2020/04/05 14:55:15      DATA_FEED_B_URL: 1.0
-2020/04/05 14:55:15      LEVELS: [{SPREAD:0.0001 AMOUNT:100} {SPREAD:0.00015 AMOUNT:100} {SPREAD:0.0002 AMOUNT:100} {SPREAD:0.00025 AMOUNT:100} {SPREAD:0.0003 AMOUNT:100}]
-2020/04/05 14:55:15 error getting list of supported exchanges at URL http://localhost:3000 by CCXT so we cannot include those exchanges: could not execute http request: Get "http://localhost:3000/exchanges": dial tcp 127.0.0.1:3000: connect: connection refused
-2020/04/05 14:55:15 validating trustlines...
-2020/04/05 14:55:15 trustlines valid
-2020/04/05 14:55:15 Starting the trader bot...
-2020/04/05 14:55:15 ----------------------------------------------------------------------------------------------------
-2020/04/05 14:55:16  (base) assetA=native, maxA=9999.99999000, trustA=math.MaxFloat64
-2020/04/05 14:55:16 (quote) assetB=COUPON:GBMMZMK2DC4FFP4CAI6KCVNCQ7WLO5A7DQU7EC7WGHRDQBZB763X4OQI, maxB=10000.00000000, trustB=30000.00000000
-2020/04/05 14:55:16 orderConstraints for trading pair XLM/COUPON: OrderConstraints[PricePrecision: 7, VolumePrecision: 7, MinBaseVolume: 0.0000001, MinQuoteVolume: <nil>]
-2020/04/05 14:55:16 liabilities after resetting
-2020/04/05 14:55:16 asset=base  , balance=9999.99999000, trust=math.MaxFloat64, minAccountBal=21.50000000, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
-2020/04/05 14:55:16 asset=quote , balance=10000.00000000, trust=30000.00000000, minAccountBal=10.00000000, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
-2020/04/05 14:55:16 returning kraken API key at index 0
-2020/04/05 14:55:16 (modifier: mid) price from exchange feed (kraken/XXLM/ZUSD/mid): bidPrice=0.042300, askPrice=0.042361, midPrice=0.042331, lastTradePrice=0.042289; price=0.042331
-2020/04/05 14:55:16 feedPair prices: feedA=1.00000000, feedB=0.04233100; price=23.62334932
-2020/04/05 14:55:16 returning kraken API key at index 0
-2020/04/05 14:55:17 (modifier: mid) price from exchange feed (kraken/XXLM/ZUSD/mid): bidPrice=0.042300, askPrice=0.042362, midPrice=0.042331, lastTradePrice=0.042289; price=0.042331
-2020/04/05 14:55:17 feedPair prices: feedA=0.04233100, feedB=1.00000000; price=0.04233100
-2020/04/05 14:55:17 created 0 operations to prune excess offers
-2020/04/05 14:55:17 liabilities after resetting
-2020/04/05 14:55:17 asset=base  , balance=9999.99999000, trust=math.MaxFloat64, minAccountBal=21.50000000, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
-2020/04/05 14:55:17 asset=quote , balance=10000.00000000, trust=30000.00000000, minAccountBal=10.00000000, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
-2020/04/05 14:55:17 buy  | create | new level=1 | priceQuote=0.04232677 | amtBase=999.99999906
-2020/04/05 14:55:17 buy  | create | new level=2 | priceQuote=0.04232465 | amtBase=999.99999906
-2020/04/05 14:55:17 buy  | create | new level=3 | priceQuote=0.04232254 | amtBase=1000.00000066
-2020/04/05 14:55:17 buy  | create | new level=4 | priceQuote=0.04232042 | amtBase=999.99999963
-2020/04/05 14:55:17 buy  | create | new level=5 | priceQuote=0.04231830 | amtBase=1000.00000117
-2020/04/05 14:55:17 buy , done creating preceding offers (numLevelsConsumed=5, hitCapacityLimit=false, numOps=5, newTopOfferPrice=23.6257117)
-2020/04/05 14:55:17 sell | create | new level=1 | priceQuote=0.04233520 | amtBase=1000.00000000
-2020/04/05 14:55:17 sell | create | new level=2 | priceQuote=0.04233730 | amtBase=1000.00000000
-2020/04/05 14:55:17 sell | create | new level=3 | priceQuote=0.04233950 | amtBase=1000.00000000
-2020/04/05 14:55:17 sell | create | new level=4 | priceQuote=0.04234160 | amtBase=1000.00000000
-2020/04/05 14:55:17 sell | create | new level=5 | priceQuote=0.04234370 | amtBase=1000.00000000
-2020/04/05 14:55:17 sell, done creating preceding offers (numLevelsConsumed=5, hitCapacityLimit=false, numOps=5, newTopOfferPrice=0.0423352)
-2020/04/05 14:55:17 liabilities at the end of a call to UpdateWithOps
-2020/04/05 14:55:17 asset=base  , balance=9999.99999000, trust=math.MaxFloat64, minAccountBal=21.50000000, buyingLiabilities=4999.99999958, sellingLiabilities=5005.00010000
-2020/04/05 14:55:17 asset=quote , balance=10000.00000000, trust=30000.00000000, minAccountBal=10.00000000, buyingLiabilities=211.69730000, sellingLiabilities=211.61267840
-2020/04/05 14:55:17 orderConstraintsFilter:  buying, baseAmount=999.99999906, quoteAmount=42.32676720, keep = true
-2020/04/05 14:55:17 orderConstraintsFilter:  buying, baseAmount=999.99999906, quoteAmount=42.32465130, keep = true
-2020/04/05 14:55:17 orderConstraintsFilter:  buying, baseAmount=1000.00000066, quoteAmount=42.32253550, keep = true
-2020/04/05 14:55:17 orderConstraintsFilter:  buying, baseAmount=999.99999963, quoteAmount=42.32041980, keep = true
-2020/04/05 14:55:17 orderConstraintsFilter:  buying, baseAmount=1000.00000117, quoteAmount=42.31830460, keep = true
-2020/04/05 14:55:17 orderConstraintsFilter: selling, baseAmount=1000.00000000, quoteAmount=42.33520000, keep = true
-2020/04/05 14:55:17 orderConstraintsFilter: selling, baseAmount=1000.00000000, quoteAmount=42.33730000, keep = true
-2020/04/05 14:55:17 orderConstraintsFilter: selling, baseAmount=1000.00000000, quoteAmount=42.33950000, keep = true
-2020/04/05 14:55:17 orderConstraintsFilter: selling, baseAmount=1000.00000000, quoteAmount=42.34160000, keep = true
-2020/04/05 14:55:17 orderConstraintsFilter: selling, baseAmount=1000.00000000, quoteAmount=42.34370000, keep = true
-2020/04/05 14:55:17 orderConstraintsFilter: dropped 0, kept 10 ops from original 10 ops, len(filteredOps) = 10
-2020/04/05 14:55:17 created 10 operations to update existing offers
-2020/04/05 14:55:17 reloading sequence number
-2020/04/05 14:55:17 lastFee <= maxOpFeeStroops; using last_ledger_base_fee of 100 stroops (maxOpFeeStroops = 5000)
-2020/04/05 14:55:17 tx XDR: AAAAADzq2buW63GJBDOp6y1RUs8z2YJPNOQUmqt6CrVQ70thAAAD6AAQS68AAAACAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgAAAAAAAAADAAAAAkNPVVBPTgAAAAAAAAAAAABYzLFaGLhSv4ICPKFVoofst3QfHCnyC/Yx4jgHIf+3fgAAAAAAAAAAGTqNWA4U/10AmJaAAAAAAAAAAAAAAAAAAAAAAwAAAAJDT1VQT04AAAAAAAAAAAAAWMyxWhi4Ur+CAjyhVaKH7Ld0Hxwp8gv2MeI4ByH/t34AAAAAAAAAABk6OrEAHCpbAAExLQAAAAAAAAAAAAAAAAAAAAMAAAACQ09VUE9OAAAAAAAAAAAAAFjMsVoYuFK/ggI8oVWih+y3dB8cKfIL9jHiOAch/7d+AAAAAAAAAAAZOegLALRElQAHoSAAAAAAAAAAAAAAAAAAAAADAAAAAkNPVVBPTgAAAAAAAAAAAABYzLFaGLhSv4ICPKFVoofst3QfHCnyC/Yx4jgHIf+3fgAAAAAAAAAAGTmVZgHCsTkAExLQAAAAAAAAAAAAAAAAAAAAAwAAAAJDT1VQT04AAAAAAAAAAAAAWMyxWhi4Ur+CAjyhVaKH7Ld0Hxwp8gv2MeI4ByH/t34AAAAAAAAAABk5QsYOFbfrAJiWgAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAkNPVVBPTgAAAAAAAAAAAABYzLFaGLhSv4ICPKFVoofst3QfHCnyC/Yx4jgHIf+3fgAAAAJUC+QAAADOtwATEtAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAJDT1VQT04AAAAAAAAAAAAAWMyxWhi4Ur+CAjyhVaKH7Ld0Hxwp8gv2MeI4ByH/t34AAAACVAvkAAAGdc0AmJaAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAACQ09VUE9OAAAAAAAAAAAAAFjMsVoYuFK/ggI8oVWih+y3dB8cKfIL9jHiOAch/7d+AAAAAlQL5AAAAUrHAB6EgAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAkNPVVBPTgAAAAAAAAAAAABYzLFaGLhSv4ICPKFVoofst3QfHCnyC/Yx4jgHIf+3fgAAAAJUC+QAAADOvwATEtAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAJDT1VQT04AAAAAAAAAAAAAWMyxWhi4Ur+CAjyhVaKH7Ld0Hxwp8gv2MeI4ByH/t34AAAACVAvkAAAGdg0AmJaAAAAAAAAAAAAAAAAAAAAAAVDvS2EAAABAilI/JDx73q5wspo9+LLMMAagGStp80+yxKDpOZhmfliw5mu4jMCMx0BtAREDp0e6nc0u7EaYaOVVGLqG06jOBg==
-2020/04/05 14:55:17 submitting tx XDR to network (async)
-2020/04/05 14:55:21 (async) tx confirmation hash: f460afe4032a530778365cd132b8baec9e975f2f60d64c1d92bf55955e15884b
-2020/04/05 14:55:21 ----------------------------------------------------------------------------------------------------
-2020/04/05 14:55:21 sleeping for 4m54.767567448s...
-2020/04/05 15:00:15 intervalTimeController tickInterval=5m0s, shouldUpdate=true, elapsedSinceUpdate=5m0.00026532s
-2020/04/05 15:00:16  (base) assetA=native, maxA=13999.99989000, trustA=math.MaxFloat64
-2020/04/05 15:00:16 (quote) assetB=COUPON:GBMMZMK2DC4FFP4CAI6KCVNCQ7WLO5A7DQU7EC7WGHRDQBZB763X4OQI, maxB=9831.22920000, trustB=30000.00000000
-2020/04/05 15:00:16 orderConstraints for trading pair XLM/COUPON: OrderConstraints[PricePrecision: 7, VolumePrecision: 7, MinBaseVolume: 0.0000001, MinQuoteVolume: <nil>]
-2020/04/05 15:00:16 liabilities after resetting
-2020/04/05 15:00:16 asset=base  , balance=13999.99989000, trust=math.MaxFloat64, minAccountBal=25.00000000, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
-2020/04/05 15:00:16 asset=quote , balance=9831.22920000, trust=30000.00000000, minAccountBal=9.83122920, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
-2020/04/05 15:00:16 returning kraken API key at index 0
-2020/04/05 15:00:16 (modifier: mid) price from exchange feed (kraken/XXLM/ZUSD/mid): bidPrice=0.042317, askPrice=0.042375, midPrice=0.042346, lastTradePrice=0.042289; price=0.042346
-2020/04/05 15:00:16 feedPair prices: feedA=1.00000000, feedB=0.04234600; price=23.61498134
-2020/04/05 15:00:16 returning kraken API key at index 0
-2020/04/05 15:00:17 (modifier: mid) price from exchange feed (kraken/XXLM/ZUSD/mid): bidPrice=0.042320, askPrice=0.042375, midPrice=0.042348, lastTradePrice=0.042289; price=0.042348
-2020/04/05 15:00:17 feedPair prices: feedA=0.04234800, feedB=1.00000000; price=0.04234800
-2020/04/05 15:00:17 offer | buy  | level=1 | curPriceQuote=0.04232042 | curAmtBase=12.37165894 | pruning=false
-2020/04/05 15:00:17 offer | buy  | level=2 | curPriceQuote=0.04231830 | curAmtBase=1000.00000117 | pruning=false
-2020/04/05 15:00:17 offer | sell | level=1 | curPriceQuote=0.04233520 | curAmtBase=1000.00000000 | pruning=false
-2020/04/05 15:00:17 offer | sell | level=2 | curPriceQuote=0.04233730 | curAmtBase=1000.00000000 | pruning=false
-2020/04/05 15:00:17 offer | sell | level=3 | curPriceQuote=0.04233950 | curAmtBase=1000.00000000 | pruning=false
-2020/04/05 15:00:17 offer | sell | level=4 | curPriceQuote=0.04234160 | curAmtBase=1000.00000000 | pruning=false
-2020/04/05 15:00:17 offer | sell | level=5 | curPriceQuote=0.04234370 | curAmtBase=1000.00000000 | pruning=false
-2020/04/05 15:00:17 created 0 operations to prune excess offers
-2020/04/05 15:00:17 liabilities after resetting
-2020/04/05 15:00:17 asset=base  , balance=13999.99989000, trust=math.MaxFloat64, minAccountBal=25.00000000, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
-2020/04/05 15:00:17 asset=quote , balance=9831.22920000, trust=30000.00000000, minAccountBal=9.83122920, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
-2020/04/05 15:00:17 buy  | create | new level=1 | priceQuote=0.04234177 | amtBase=1000.00000002
-2020/04/05 15:00:17 buy  | create | new level=2 | priceQuote=0.04233965 | amtBase=999.99999912
-2020/04/05 15:00:17 buy  | create | new level=3 | priceQuote=0.04233753 | amtBase=1000.00000080
-2020/04/05 15:00:17 buy , done creating preceding offers (numLevelsConsumed=3, hitCapacityLimit=false, numOps=3, newTopOfferPrice=23.6173428)
-2020/04/05 15:00:17 buy  | modify | old level=1 | new level = 4 | triggers=[amount] | targetPriceQuote=0.04233542 | targetAmtBase=999.99999936 | curPriceQuote=0.04232042 | lowPriceQuote=0.04229312 | highPriceQuote=0.04237779 | curAmtBase=12.37165894 | minAmtBase=999.35399667 | maxAmtBase=1001.35470538
-2020/04/05 15:00:17 buy  | modify | unmodified original level = 2 | newLevel number = 5
-2020/04/05 15:00:17 sell, done creating preceding offers (numLevelsConsumed=0, hitCapacityLimit=false, numOps=0, newTopOfferPrice=<nil>)
-2020/04/05 15:00:17 sell | modify | unmodified original level = 1 | newLevel number = 1
-2020/04/05 15:00:17 sell | modify | unmodified original level = 2 | newLevel number = 2
-2020/04/05 15:00:17 sell | modify | unmodified original level = 3 | newLevel number = 3
-2020/04/05 15:00:17 sell | modify | unmodified original level = 4 | newLevel number = 4
-2020/04/05 15:00:17 sell | modify | unmodified original level = 5 | newLevel number = 5
-2020/04/05 15:00:17 liabilities at the end of a call to UpdateWithOps
-2020/04/05 15:00:17 asset=base  , balance=13999.99989000, trust=math.MaxFloat64, minAccountBal=25.00000000, buyingLiabilities=5000.00000048, sellingLiabilities=5001.50010000
-2020/04/05 15:00:17 asset=quote , balance=9831.22920000, trust=30000.00000000, minAccountBal=9.83122920, buyingLiabilities=211.69730000, sellingLiabilities=211.67266820
-2020/04/05 15:00:17 orderConstraintsFilter:  buying, baseAmount=1000.00000002, quoteAmount=42.34176590, keep = true
-2020/04/05 15:00:17 orderConstraintsFilter:  buying, baseAmount=999.99999912, quoteAmount=42.33964900, keep = true
-2020/04/05 15:00:17 orderConstraintsFilter:  buying, baseAmount=1000.00000080, quoteAmount=42.33753260, keep = true
-2020/04/05 15:00:17 orderConstraintsFilter:  buying, baseAmount=999.99999936, quoteAmount=42.33541610, keep = true
-2020/04/05 15:00:17 orderConstraintsFilter: dropped 0, kept 4 ops from original 4 ops, len(filteredOps) = 4
-2020/04/05 15:00:17 created 4 operations to update existing offers
-2020/04/05 15:00:17 lastFee <= maxOpFeeStroops; using last_ledger_base_fee of 100 stroops (maxOpFeeStroops = 5000)
-2020/04/05 15:00:17 tx XDR: AAAAADzq2buW63GJBDOp6y1RUs8z2YJPNOQUmqt6CrVQ70thAAABkAAQS68AAAADAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAADAAAAAkNPVVBPTgAAAAAAAAAAAABYzLFaGLhSv4ICPKFVoofst3QfHCnyC/Yx4jgHIf+3fgAAAAAAAAAAGTzXOwOE7h0AJiWgAAAAAAAAAAAAAAAAAAAAAwAAAAJDT1VQT04AAAAAAAAAAAAAWMyxWhi4Ur+CAjyhVaKH7Ld0Hxwp8gv2MeI4ByH/t34AAAAAAAAAABk8hIoDhPmlACYloAAAAAAAAAAAAAAAAAAAAAMAAAACQ09VUE9OAAAAAAAAAAAAAFjMsVoYuFK/ggI8oVWih+y3dB8cKfIL9jHiOAch/7d+AAAAAAAAAAAZPDHeDhQUswCYloAAAAAAAAAAAAAAAAAAAAADAAAAAkNPVVBPTgAAAAAAAAAAAABYzLFaGLhSv4ICPKFVoofst3QfHCnyC/Yx4jgHIf+3fgAAAAAAAAAAGTvfMQ4UQtMAmJaAAAAAAABTgl0AAAAAAAAAAVDvS2EAAABAkyhI9AUdSlEb4Bu7qmxyxUkPZ21cd44GExq8FlfQEnWGU03No8BpIFWa7bZ8YBi4kkLQjecW/u5IewmJVmg2DQ==
-2020/04/05 15:00:17 submitting tx XDR to network (async)
-2020/04/05 15:00:23 (async) error: result code details: tx code = tx_failed , opcodes = [op_cross_self op_cross_self op_cross_self op_cross_self]
-2020/04/05 15:00:23 ----------------------------------------------------------------------------------------------------
-2020/04/05 15:00:23 sleeping for 4m52.745724963s...
-2020/04/05 15:05:15 intervalTimeController tickInterval=5m0s, shouldUpdate=true, elapsedSinceUpdate=5m0.000255149s
-2020/04/05 15:05:16  (base) assetA=native, maxA=13999.99985000, trustA=math.MaxFloat64
-2020/04/05 15:05:16 (quote) assetB=COUPON:GBMMZMK2DC4FFP4CAI6KCVNCQ7WLO5A7DQU7EC7WGHRDQBZB763X4OQI, maxB=9831.22920000, trustB=30000.00000000
-2020/04/05 15:05:16 orderConstraints for trading pair XLM/COUPON: OrderConstraints[PricePrecision: 7, VolumePrecision: 7, MinBaseVolume: 0.0000001, MinQuoteVolume: <nil>]
-2020/04/05 15:05:16 liabilities after resetting
-2020/04/05 15:05:16 asset=base  , balance=13999.99985000, trust=math.MaxFloat64, minAccountBal=25.00000000, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
-2020/04/05 15:05:16 asset=quote , balance=9831.22920000, trust=30000.00000000, minAccountBal=9.83122920, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
-2020/04/05 15:05:16 returning kraken API key at index 0
-2020/04/05 15:05:16 (modifier: mid) price from exchange feed (kraken/XXLM/ZUSD/mid): bidPrice=0.042375, askPrice=0.042381, midPrice=0.042378, lastTradePrice=0.042289; price=0.042378
-2020/04/05 15:05:16 feedPair prices: feedA=1.00000000, feedB=0.04237800; price=23.59714946
-2020/04/05 15:05:16 returning kraken API key at index 0
-2020/04/05 15:05:16 (modifier: mid) price from exchange feed (kraken/XXLM/ZUSD/mid): bidPrice=0.042377, askPrice=0.042381, midPrice=0.042379, lastTradePrice=0.042289; price=0.042379
-2020/04/05 15:05:16 feedPair prices: feedA=0.04237900, feedB=1.00000000; price=0.04237900
-2020/04/05 15:05:16 offer | buy  | level=1 | curPriceQuote=0.04232042 | curAmtBase=12.37165894 | pruning=false
-2020/04/05 15:05:16 offer | buy  | level=2 | curPriceQuote=0.04231830 | curAmtBase=1000.00000117 | pruning=false
-2020/04/05 15:05:16 offer | sell | level=1 | curPriceQuote=0.04233520 | curAmtBase=1000.00000000 | pruning=false
-2020/04/05 15:05:16 offer | sell | level=2 | curPriceQuote=0.04233730 | curAmtBase=1000.00000000 | pruning=false
-2020/04/05 15:05:16 offer | sell | level=3 | curPriceQuote=0.04233950 | curAmtBase=1000.00000000 | pruning=false
-2020/04/05 15:05:16 offer | sell | level=4 | curPriceQuote=0.04234160 | curAmtBase=1000.00000000 | pruning=false
-2020/04/05 15:05:16 offer | sell | level=5 | curPriceQuote=0.04234370 | curAmtBase=1000.00000000 | pruning=false
-2020/04/05 15:05:16 created 0 operations to prune excess offers
-2020/04/05 15:05:17 liabilities after resetting
-2020/04/05 15:05:17 asset=base  , balance=13999.99985000, trust=math.MaxFloat64, minAccountBal=25.00000000, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
-2020/04/05 15:05:17 asset=quote , balance=9831.22920000, trust=30000.00000000, minAccountBal=9.83122920, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
-2020/04/05 15:05:17 buy  | create | new level=1 | priceQuote=0.04237376 | amtBase=1000.00000032
-2020/04/05 15:05:17 buy  | create | new level=2 | priceQuote=0.04237164 | amtBase=999.99999954
-2020/04/05 15:05:17 buy  | create | new level=3 | priceQuote=0.04236953 | amtBase=1000.00000037
-2020/04/05 15:05:17 buy , done creating preceding offers (numLevelsConsumed=3, hitCapacityLimit=false, numOps=3, newTopOfferPrice=23.5995092)
-2020/04/05 15:05:17 buy  | modify | old level=1 | new level = 4 | triggers=[price amount] | targetPriceQuote=0.04236741 | targetAmtBase=1000.00000091 | curPriceQuote=0.04232042 | lowPriceQuote=0.04232508 | highPriceQuote=0.04240982 | curAmtBase=12.37165894 | minAmtBase=1000.10918786 | maxAmtBase=1002.11140846
-2020/04/05 15:05:17 buy  | modify | old level=2 | new level = 5 | triggers=[price amount] | targetPriceQuote=0.04236529 | targetAmtBase=999.99999931 | curPriceQuote=0.04231830 | lowPriceQuote=0.04232297 | highPriceQuote=0.04240770 | curAmtBase=1000.00000117 | minAmtBase=1000.10918583 | maxAmtBase=1002.11140642
-2020/04/05 15:05:17 sell, done creating preceding offers (numLevelsConsumed=0, hitCapacityLimit=false, numOps=0, newTopOfferPrice=<nil>)
-2020/04/05 15:05:17 sell | modify | old level=1 | new level = 1 | triggers=[price] | targetPriceQuote=0.04238320 | targetAmtBase=1000.00000000 | curPriceQuote=0.04233520 | lowPriceQuote=0.04234082 | highPriceQuote=0.04242558 | curAmtBase=1000.00000000 | minAmtBase=999.00000000 | maxAmtBase=1001.00000000
-2020/04/05 15:05:17 sell | modify | old level=2 | new level = 2 | triggers=[price] | targetPriceQuote=0.04238540 | targetAmtBase=1000.00000000 | curPriceQuote=0.04233730 | lowPriceQuote=0.04234301 | highPriceQuote=0.04242779 | curAmtBase=1000.00000000 | minAmtBase=999.00000000 | maxAmtBase=1001.00000000
-2020/04/05 15:05:17 sell | modify | old level=3 | new level = 3 | triggers=[price] | targetPriceQuote=0.04238750 | targetAmtBase=1000.00000000 | curPriceQuote=0.04233950 | lowPriceQuote=0.04234511 | highPriceQuote=0.04242989 | curAmtBase=1000.00000000 | minAmtBase=999.00000000 | maxAmtBase=1001.00000000
-2020/04/05 15:05:17 sell | modify | old level=4 | new level = 4 | triggers=[price] | targetPriceQuote=0.04238960 | targetAmtBase=1000.00000000 | curPriceQuote=0.04234160 | lowPriceQuote=0.04234721 | highPriceQuote=0.04243199 | curAmtBase=1000.00000000 | minAmtBase=999.00000000 | maxAmtBase=1001.00000000
-2020/04/05 15:05:17 sell | modify | old level=5 | new level = 5 | triggers=[price] | targetPriceQuote=0.04239170 | targetAmtBase=1000.00000000 | curPriceQuote=0.04234370 | lowPriceQuote=0.04234931 | highPriceQuote=0.04243409 | curAmtBase=1000.00000000 | minAmtBase=999.00000000 | maxAmtBase=1001.00000000
-2020/04/05 15:05:17 liabilities at the end of a call to UpdateWithOps
-2020/04/05 15:05:17 asset=base  , balance=13999.99985000, trust=math.MaxFloat64, minAccountBal=25.00000000, buyingLiabilities=5000.00000045, sellingLiabilities=5001.50010000
-2020/04/05 15:05:17 asset=quote , balance=9831.22920000, trust=30000.00000000, minAccountBal=9.83122920, buyingLiabilities=211.93740000, sellingLiabilities=211.84763150
-2020/04/05 15:05:17 orderConstraintsFilter: selling, baseAmount=1000.00000000, quoteAmount=42.38320000, keep = true
-2020/04/05 15:05:17 orderConstraintsFilter: selling, baseAmount=1000.00000000, quoteAmount=42.38540000, keep = true
-2020/04/05 15:05:17 orderConstraintsFilter: selling, baseAmount=1000.00000000, quoteAmount=42.38750000, keep = true
-2020/04/05 15:05:17 orderConstraintsFilter: selling, baseAmount=1000.00000000, quoteAmount=42.38960000, keep = true
-2020/04/05 15:05:17 orderConstraintsFilter: selling, baseAmount=1000.00000000, quoteAmount=42.39170000, keep = true
-2020/04/05 15:05:17 orderConstraintsFilter:  buying, baseAmount=1000.00000032, quoteAmount=42.37376260, keep = true
-2020/04/05 15:05:17 orderConstraintsFilter:  buying, baseAmount=999.99999954, quoteAmount=42.37164430, keep = true
-2020/04/05 15:05:17 orderConstraintsFilter:  buying, baseAmount=1000.00000037, quoteAmount=42.36952610, keep = true
-2020/04/05 15:05:17 orderConstraintsFilter:  buying, baseAmount=1000.00000091, quoteAmount=42.36740810, keep = true
-2020/04/05 15:05:17 orderConstraintsFilter:  buying, baseAmount=999.99999931, quoteAmount=42.36529040, keep = true
-2020/04/05 15:05:17 orderConstraintsFilter: dropped 0, kept 10 ops from original 10 ops, len(filteredOps) = 10
-2020/04/05 15:05:17 created 10 operations to update existing offers
-2020/04/05 15:05:17 lastFee <= maxOpFeeStroops; using last_ledger_base_fee of 100 stroops (maxOpFeeStroops = 5000)
-2020/04/05 15:05:17 tx XDR: AAAAADzq2buW63GJBDOp6y1RUs8z2YJPNOQUmqt6CrVQ70thAAAD6AAQS68AAAAEAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgAAAAAAAAADAAAAAAAAAAJDT1VQT04AAAAAAAAAAAAAWMyxWhi4Ur+CAjyhVaKH7Ld0Hxwp8gv2MeI4ByH/t34AAAACVAvkAAAAzvMAExLQAAAAAABTgl8AAAAAAAAAAwAAAAAAAAACQ09VUE9OAAAAAAAAAAAAAFjMsVoYuFK/ggI8oVWih+y3dB8cKfIL9jHiOAch/7d+AAAAAlQL5AAAAzvXAExLQAAAAAAAU4JgAAAAAAAAAAMAAAAAAAAAAkNPVVBPTgAAAAAAAAAAAABYzLFaGLhSv4ICPKFVoofst3QfHCnyC/Yx4jgHIf+3fgAAAAJUC+QAAAANPwABOIAAAAAAAFOCYQAAAAAAAAADAAAAAAAAAAJDT1VQT04AAAAAAAAAAAAAWMyxWhi4Ur+CAjyhVaKH7Ld0Hxwp8gv2MeI4ByH/t34AAAACVAvkAAAAzvsAExLQAAAAAABTgmIAAAAAAAAAAwAAAAAAAAACQ09VUE9OAAAAAAAAAAAAAFjMsVoYuFK/ggI8oVWih+y3dB8cKfIL9jHiOAch/7d+AAAAAlQL5AAABnftAJiWgAAAAAAAU4JjAAAAAAAAAAMAAAACQ09VUE9OAAAAAAAAAAAAAFjMsVoYuFK/ggI8oVWih+y3dB8cKfIL9jHiOAch/7d+AAAAAAAAAAAZQbkaA4Q/9QAmJaAAAAAAAAAAAAAAAAAAAAADAAAAAkNPVVBPTgAAAAAAAAAAAABYzLFaGLhSv4ICPKFVoofst3QfHCnyC/Yx4jgHIf+3fgAAAAAAAAAAGUFmWwFoHjEAD0JAAAAAAAAAAAAAAAAAAAAAAwAAAAJDT1VQT04AAAAAAAAAAAAAWMyxWhi4Ur+CAjyhVaKH7Ld0Hxwp8gv2MeI4ByH/t34AAAAAAAAAABlBE50OEVwBAJiWgAAAAAAAAAAAAAAAAAAAAAMAAAACQ09VUE9OAAAAAAAAAAAAAFjMsVoYuFK/ggI8oVWih+y3dB8cKfIL9jHiOAch/7d+AAAAAAAAAAAZQMDhAcIxQwATEtAAAAAAAFOCXQAAAAAAAAADAAAAAkNPVVBPTgAAAAAAAAAAAABYzLFaGLhSv4ICPKFVoofst3QfHCnyC/Yx4jgHIf+3fgAAAAAAAAAAGUBuKAcI3BcATEtAAAAAAABTgl4AAAAAAAAAAVDvS2EAAABAwzuD82ELeSs118VgU1m+6MIiTyluHHq6xyMPp2DcAhwpdMvvTK+FLXOA5oDCn7ndg+/a1/+8JLhSCU44SI21CQ==
-2020/04/05 15:05:17 submitting tx XDR to network (async)
-2020/04/05 15:05:23 (async) tx confirmation hash: ad80c44f79808a420e2ad46142625a47753afcaecf0be4e6c7a89919db749d3b
-2020/04/05 15:05:23 ----------------------------------------------------------------------------------------------------
-2020/04/05 15:05:23 sleeping for 4m52.772315898s...
-^CMakefile:45: recipe for target 'buysell' failed
+alec@miasrv ~/go/src/github.com/amissine/stellar_kelp_examples (master) $ make
+go build -o bin/stellar_kelp_examples
+bin/stellar_kelp_examples addaccount > add_source_account.run
+2020/04/06 18:30:21 Starting Kelp Trader: master:ui-astilectron-vendor-7-g5a5967c7-dirty [5a5967c78e087023ac96bf64e5683a52ff5af7ae-dirty]
+2020/04/06 18:30:21 will run unbounded iterations
+2020/04/06 18:30:21 configs:
+2020/04/06 18:30:21      SOURCE_SECRET_SEED: [secret key to account GC5J2F6NE3L2FZNIFI7HI7H3V3YOQ5NDZZPW6DSH7B7PARX3VDRJTYDR]
+2020/04/06 18:30:21      TRADING_SECRET_SEED: [secret key to account GBPEST6WEDIV4ZUY2EDITCJN7EZH5DEKNMTIHYGCLZQJWKT2K4MDYHXT]
+2020/04/06 18:30:21      ASSET_CODE_A: XLM
+2020/04/06 18:30:21      ISSUER_A: 
+2020/04/06 18:30:21      ASSET_CODE_B: COUPON
+2020/04/06 18:30:21      ISSUER_B: GBMMZMK2DC4FFP4CAI6KCVNCQ7WLO5A7DQU7EC7WGHRDQBZB763X4OQI
+2020/04/06 18:30:21      TICK_INTERVAL_SECONDS: 300
+2020/04/06 18:30:21      MAX_TICK_DELAY_MILLIS: 0
+2020/04/06 18:30:21      DELETE_CYCLES_THRESHOLD: 0
+2020/04/06 18:30:21      SUBMIT_MODE: both
+2020/04/06 18:30:21      FILL_TRACKER_SLEEP_MILLIS: 0
+2020/04/06 18:30:21      FILL_TRACKER_DELETE_CYCLES_THRESHOLD: 0
+2020/04/06 18:30:21      FILL_TRACKER_LAST_TRADE_CURSOR_OVERRIDE: 
+2020/04/06 18:30:21      HORIZON_URL: https://horizon-testnet.stellar.org
+2020/04/06 18:30:21      CCXT_REST_URL: <nil>
+2020/04/06 18:30:21      FEE: 
+2020/04/06 18:30:21          CAPACITY_TRIGGER: 0.8
+2020/04/06 18:30:21          PERCENTILE: 90
+2020/04/06 18:30:21          MAX_OP_FEE_STROOPS: 5000
+2020/04/06 18:30:21      CENTRALIZED_PRICE_PRECISION_OVERRIDE: <nil>
+2020/04/06 18:30:21      CENTRALIZED_VOLUME_PRECISION_OVERRIDE: <nil>
+2020/04/06 18:30:21      CENTRALIZED_MIN_BASE_VOLUME_OVERRIDE: <nil>
+2020/04/06 18:30:21      CENTRALIZED_MIN_QUOTE_VOLUME_OVERRIDE: <nil>
+2020/04/06 18:30:21      POSTGRES_DB: <nil>
+2020/04/06 18:30:21      FILTERS: []
+2020/04/06 18:30:21      ALERT_TYPE: 
+2020/04/06 18:30:21      ALERT_API_KEY: 
+2020/04/06 18:30:21      MONITORING_PORT: 0
+2020/04/06 18:30:21      MONITORING_TLS_CERT: 
+2020/04/06 18:30:21      MONITORING_TLS_KEY: 
+2020/04/06 18:30:21      GOOGLE_CLIENT_ID: 
+2020/04/06 18:30:21      GOOGLE_CLIENT_SECRET: 
+2020/04/06 18:30:21      ACCEPTABLE_GOOGLE_EMAILS: 
+2020/04/06 18:30:21      TRADING_EXCHANGE: 
+2020/04/06 18:30:21      EXCHANGE_API_KEYS: 
+2020/04/06 18:30:21      EXCHANGE_PARAMS: 
+2020/04/06 18:30:21      EXCHANGE_HEADERS: 
+2020/04/06 18:30:21 Trading XLM: for COUPON:GBMMZMK2DC4FFP4CAI6KCVNCQ7WLO5A7DQU7EC7WGHRDQBZB763X4OQI
+2020/04/06 18:30:21 using CCXT-rest URL: http://localhost:3000
+2020/04/06 18:30:21 Using network passphrase: Test SDF Network ; September 2015
+2020/04/06 18:30:21 Making strategy: buysell
+2020/04/06 18:30:21 configs:
+2020/04/06 18:30:21      PRICE_TOLERANCE: 0.001
+2020/04/06 18:30:21      AMOUNT_TOLERANCE: 0.001
+2020/04/06 18:30:21      RATE_OFFSET_PERCENT: 0
+2020/04/06 18:30:21      RATE_OFFSET: 0
+2020/04/06 18:30:21      RATE_OFFSET_PERCENT_FIRST: true
+2020/04/06 18:30:21      AMOUNT_OF_A_BASE: 10
+2020/04/06 18:30:21      DATA_TYPE_A: exchange
+2020/04/06 18:30:21      DATA_FEED_A_URL: kraken/XXLM/ZUSD/mid
+2020/04/06 18:30:21      DATA_TYPE_B: fixed
+2020/04/06 18:30:21      DATA_FEED_B_URL: 1.0
+2020/04/06 18:30:21      LEVELS: [{SPREAD:0.0001 AMOUNT:100} {SPREAD:0.00015 AMOUNT:100} {SPREAD:0.0002 AMOUNT:100} {SPREAD:0.00025 AMOUNT:100} {SPREAD:0.0003 AMOUNT:100}]
+2020/04/06 18:30:21 error getting list of supported exchanges at URL http://localhost:3000 by CCXT so we cannot include those exchanges: could not execute http request: Get "http://localhost:3000/exchanges": dial tcp 127.0.0.1:3000: connect: connection refused
+2020/04/06 18:30:21 validating trustlines...
+2020/04/06 18:30:21 trustlines valid
+2020/04/06 18:30:21 Starting the trader bot...
+2020/04/06 18:30:21 ----------------------------------------------------------------------------------------------------
+2020/04/06 18:30:21  (base) assetA=native, maxA=4999.99999000, trustA=math.MaxFloat64
+2020/04/06 18:30:21 (quote) assetB=COUPON:GBMMZMK2DC4FFP4CAI6KCVNCQ7WLO5A7DQU7EC7WGHRDQBZB763X4OQI, maxB=10000.00000000, trustB=30000.00000000
+2020/04/06 18:30:22 orderConstraints for trading pair XLM/COUPON: OrderConstraints[PricePrecision: 7, VolumePrecision: 7, MinBaseVolume: 0.0000001, MinQuoteVolume: <nil>]
+2020/04/06 18:30:22 liabilities after resetting
+2020/04/06 18:30:22 asset=base  , balance=4999.99999000, trust=math.MaxFloat64, minAccountBal=21.50000000, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
+2020/04/06 18:30:22 asset=quote , balance=10000.00000000, trust=30000.00000000, minAccountBal=10.00000000, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
+2020/04/06 18:30:22 returning kraken API key at index 0
+2020/04/06 18:30:23 (modifier: mid) price from exchange feed (kraken/XXLM/ZUSD/mid): bidPrice=0.049414, askPrice=0.049452, midPrice=0.049433, lastTradePrice=0.049644; price=0.049433
+2020/04/06 18:30:23 feedPair prices: feedA=1.00000000, feedB=0.04943300; price=20.22940141
+2020/04/06 18:30:23 returning kraken API key at index 0
+2020/04/06 18:30:23 (modifier: mid) price from exchange feed (kraken/XXLM/ZUSD/mid): bidPrice=0.049414, askPrice=0.049452, midPrice=0.049433, lastTradePrice=0.049644; price=0.049433
+2020/04/06 18:30:23 feedPair prices: feedA=0.04943300, feedB=1.00000000; price=0.04943300
+2020/04/06 18:30:23 created 0 operations to prune excess offers
+2020/04/06 18:30:24 liabilities after resetting
+2020/04/06 18:30:24 asset=base  , balance=4999.99999000, trust=math.MaxFloat64, minAccountBal=21.50000000, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
+2020/04/06 18:30:24 asset=quote , balance=10000.00000000, trust=30000.00000000, minAccountBal=10.00000000, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
+2020/04/06 18:30:24 buy  | create | new level=1 | priceQuote=0.04942806 | amtBase=1000.00000046
+2020/04/06 18:30:24 buy  | create | new level=2 | priceQuote=0.04942559 | amtBase=999.99999967
+2020/04/06 18:30:24 buy  | create | new level=3 | priceQuote=0.04942312 | amtBase=1000.00000085
+2020/04/06 18:30:24 buy  | create | new level=4 | priceQuote=0.04942064 | amtBase=999.99999905
+2020/04/06 18:30:24 buy  | create | new level=5 | priceQuote=0.04941817 | amtBase=999.99999946
+2020/04/06 18:30:24 buy , done creating preceding offers (numLevelsConsumed=5, hitCapacityLimit=false, numOps=5, newTopOfferPrice=20.2314244)
+2020/04/06 18:30:24 sell | create | new level=1 | priceQuote=0.04943790 | amtBase=1000.00000000
+2020/04/06 18:30:24 sell | create | new level=2 | priceQuote=0.04944040 | amtBase=1000.00000000
+2020/04/06 18:30:24 sell | create | new level=3 | priceQuote=0.04944290 | amtBase=1000.00000000
+2020/04/06 18:30:24 sell | create | new level=4 | priceQuote=0.04944540 | amtBase=1000.00000000
+2020/04/06 18:30:24 sell | create | new level=5 | priceQuote=0.04944780 | amtBase=1000.00000000
+2020/04/06 18:30:24 we will oversell the asset 'native', amountSelling = 1000.00000000, bal = 4999.99999000, minAccountBal = 21.50000000, liabilities.Selling = 4004.50000000
+2020/04/06 18:30:24 computed remainder amount, constrained by selling capacity, returning sellingAmount=973.49999000, buyingAmount=48.13743281
+2020/04/06 18:30:24 sell | create | new level=5 | priceQuote=0.04944780 | amtBase=973.49999000
+2020/04/06 18:30:24 sell, done creating preceding offers (numLevelsConsumed=5, hitCapacityLimit=true, numOps=5, newTopOfferPrice=0.0494379)
+2020/04/06 18:30:24 liabilities at the end of a call to UpdateWithOps
+2020/04/06 18:30:24 asset=base  , balance=4999.99999000, trust=math.MaxFloat64, minAccountBal=21.50000000, buyingLiabilities=4999.99999948, sellingLiabilities=4978.49999000
+2020/04/06 18:30:24 asset=quote , balance=10000.00000000, trust=30000.00000000, minAccountBal=10.00000000, buyingLiabilities=245.90403281, sellingLiabilities=247.11557800
+2020/04/06 18:30:24 orderConstraintsFilter:  buying, baseAmount=1000.00000046, quoteAmount=49.42805710, keep = true
+2020/04/06 18:30:24 orderConstraintsFilter:  buying, baseAmount=999.99999967, quoteAmount=49.42558620, keep = true
+2020/04/06 18:30:24 orderConstraintsFilter:  buying, baseAmount=1000.00000085, quoteAmount=49.42311540, keep = true
+2020/04/06 18:30:24 orderConstraintsFilter:  buying, baseAmount=999.99999905, quoteAmount=49.42064470, keep = true
+2020/04/06 18:30:24 orderConstraintsFilter:  buying, baseAmount=999.99999946, quoteAmount=49.41817460, keep = true
+2020/04/06 18:30:24 orderConstraintsFilter: selling, baseAmount=1000.00000000, quoteAmount=49.43790000, keep = true
+2020/04/06 18:30:24 orderConstraintsFilter: selling, baseAmount=1000.00000000, quoteAmount=49.44040000, keep = true
+2020/04/06 18:30:24 orderConstraintsFilter: selling, baseAmount=1000.00000000, quoteAmount=49.44290000, keep = true
+2020/04/06 18:30:24 orderConstraintsFilter: selling, baseAmount=1000.00000000, quoteAmount=49.44540000, keep = true
+2020/04/06 18:30:24 orderConstraintsFilter: selling, baseAmount=973.49999000, quoteAmount=48.13743281, keep = true
+2020/04/06 18:30:24 orderConstraintsFilter: dropped 0, kept 10 ops from original 10 ops, len(filteredOps) = 10
+2020/04/06 18:30:24 created 10 operations to update existing offers
+2020/04/06 18:30:24 reloading sequence number
+2020/04/06 18:30:24 lastFee <= maxOpFeeStroops; using last_ledger_base_fee of 100 stroops (maxOpFeeStroops = 5000)
+2020/04/06 18:30:24 tx XDR: AAAAALqdF80m16LlqCo+dHz7rvDodaPOX28OR/h+8Eb7qOKZAAAD6AAQkyUAAAACAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgAAAAEAAAAAXklP1iDRXmaY0QaJiS35Mn6Mimsmg+DCXmCbKnpXGDwAAAADAAAAAkNPVVBPTgAAAAAAAAAAAABYzLFaGLhSv4ICPKFVoofst3QfHCnyC/Yx4jgHIf+3fgAAAAAAAAAAHXYfewMDxIEAJiWgAAAAAAAAAAAAAAABAAAAAF5JT9Yg0V5mmNEGiYkt+TJ+jIprJoPgwl5gmyp6Vxg8AAAAAwAAAAJDT1VQT04AAAAAAAAAAAAAWMyxWhi4Ur+CAjyhVaKH7Ld0Hxwp8gv2MeI4ByH/t34AAAAAAAAAAB11vvYGB5zDAExLQAAAAAAAAAAAAAAAAQAAAABeSU/WINFeZpjRBomJLfkyfoyKayaD4MJeYJsqelcYPAAAAAMAAAACQ09VUE9OAAAAAAAAAAAAAFjMsVoYuFK/ggI8oVWih+y3dB8cKfIL9jHiOAch/7d+AAAAAAAAAAAddV5yDA9hCQCYloAAAAAAAAAAAAAAAAEAAAAAXklP1iDRXmaY0QaJiS35Mn6Mimsmg+DCXmCbKnpXGDwAAAADAAAAAkNPVVBPTgAAAAAAAAAAAABYzLFaGLhSv4ICPKFVoofst3QfHCnyC/Yx4jgHIf+3fgAAAAAAAAAAHXT97wMD4iMAJiWgAAAAAAAAAAAAAAABAAAAAF5JT9Yg0V5mmNEGiYkt+TJ+jIprJoPgwl5gmyp6Vxg8AAAAAwAAAAJDT1VQT04AAAAAAAAAAAAAWMyxWhi4Ur+CAjyhVaKH7Ld0Hxwp8gv2MeI4ByH/t34AAAAAAAAAAB10nXIGB9gHAExLQAAAAAAAAAAAAAAAAQAAAABeSU/WINFeZpjRBomJLfkyfoyKayaD4MJeYJsqelcYPAAAAAMAAAAAAAAAAkNPVVBPTgAAAAAAAAAAAABYzLFaGLhSv4ICPKFVoofst3QfHCnyC/Yx4jgHIf+3fgAAAAJUC+QAAAeLKwCYloAAAAAAAAAAAAAAAAEAAAAAXklP1iDRXmaY0QaJiS35Mn6Mimsmg+DCXmCbKnpXGDwAAAADAAAAAAAAAAJDT1VQT04AAAAAAAAAAAAAWMyxWhi4Ur+CAjyhVaKH7Ld0Hxwp8gv2MeI4ByH/t34AAAACVAvkAAAB4tEAJiWgAAAAAAAAAAAAAAABAAAAAF5JT9Yg0V5mmNEGiYkt+TJ+jIprJoPgwl5gmyp6Vxg8AAAAAwAAAAAAAAACQ09VUE9OAAAAAAAAAAAAAFjMsVoYuFK/ggI8oVWih+y3dB8cKfIL9jHiOAch/7d+AAAAAlQL5AAAB4tdAJiWgAAAAAAAAAAAAAAAAQAAAABeSU/WINFeZpjRBomJLfkyfoyKayaD4MJeYJsqelcYPAAAAAMAAAAAAAAAAkNPVVBPTgAAAAAAAAAAAABYzLFaGLhSv4ICPKFVoofst3QfHCnyC/Yx4jgHIf+3fgAAAAJUC+QAAAPFuwBMS0AAAAAAAAAAAAAAAAEAAAAAXklP1iDRXmaY0QaJiS35Mn6Mimsmg+DCXmCbKnpXGDwAAAADAAAAAAAAAAJDT1VQT04AAAAAAAAAAAAAWMyxWhi4Ur+CAjyhVaKH7Ld0Hxwp8gv2MeI4ByH/t34AAAACREBPXAADxccATEtAAAAAAAAAAAAAAAAAAAAAAvuo4pkAAABAwmLG8yyqUA0Q2srdtxPYFuReSoxu6FWO86zBl8ZwMlmsLKekRFaGAQ/hX0eV+XxAKeLFxCsmfsB9KuJHWp2vBnpXGDwAAABAYu/vLj8ErZuRYv0hftpTql0tjkjcnB27WxrW8LvVkW5JqvNrulgw5MXROhwgYir+nVHZqoNDe7cUZvC5+vzQDg==
+2020/04/06 18:30:24 submitting tx XDR to network (async)
+2020/04/06 18:30:27 (async) tx confirmation hash: 1e556bca8a0907ac027896bcd1519c38bac1c2e039f6127c520b135eb59850ba
+2020/04/06 18:30:27 ----------------------------------------------------------------------------------------------------
+2020/04/06 18:30:27 sleeping for 4m54.587761068s...
+2020/04/06 18:35:21 intervalTimeController tickInterval=5m0s, shouldUpdate=true, elapsedSinceUpdate=5m0.000290473s
+2020/04/06 18:35:22  (base) assetA=native, maxA=4999.99999000, trustA=math.MaxFloat64
+2020/04/06 18:35:22 (quote) assetB=COUPON:GBMMZMK2DC4FFP4CAI6KCVNCQ7WLO5A7DQU7EC7WGHRDQBZB763X4OQI, maxB=10000.00000000, trustB=30000.00000000
+2020/04/06 18:35:22 orderConstraints for trading pair XLM/COUPON: OrderConstraints[PricePrecision: 7, VolumePrecision: 7, MinBaseVolume: 0.0000001, MinQuoteVolume: <nil>]
+2020/04/06 18:35:22 liabilities after resetting
+2020/04/06 18:35:22 asset=base  , balance=4999.99999000, trust=math.MaxFloat64, minAccountBal=26.50000000, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
+2020/04/06 18:35:22 asset=quote , balance=10000.00000000, trust=30000.00000000, minAccountBal=10.00000000, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
+2020/04/06 18:35:22 returning kraken API key at index 0
+2020/04/06 18:35:22 (modifier: mid) price from exchange feed (kraken/XXLM/ZUSD/mid): bidPrice=0.049329, askPrice=0.049371, midPrice=0.049350, lastTradePrice=0.049644; price=0.049350
+2020/04/06 18:35:22 feedPair prices: feedA=1.00000000, feedB=0.04935000; price=20.26342452
+2020/04/06 18:35:22 returning kraken API key at index 0
+2020/04/06 18:35:22 (modifier: mid) price from exchange feed (kraken/XXLM/ZUSD/mid): bidPrice=0.049329, askPrice=0.049373, midPrice=0.049351, lastTradePrice=0.049644; price=0.049351
+2020/04/06 18:35:22 feedPair prices: feedA=0.04935100, feedB=1.00000000; price=0.04935100
+2020/04/06 18:35:22 offer | buy  | level=1 | curPriceQuote=0.04942806 | curAmtBase=1000.00000046 | pruning=false
+2020/04/06 18:35:22 offer | buy  | level=2 | curPriceQuote=0.04942559 | curAmtBase=999.99999967 | pruning=false
+2020/04/06 18:35:22 offer | buy  | level=3 | curPriceQuote=0.04942312 | curAmtBase=1000.00000085 | pruning=false
+2020/04/06 18:35:22 offer | buy  | level=4 | curPriceQuote=0.04942064 | curAmtBase=999.99999905 | pruning=false
+2020/04/06 18:35:22 offer | buy  | level=5 | curPriceQuote=0.04941817 | curAmtBase=999.99999946 | pruning=false
+2020/04/06 18:35:22 offer | sell | level=1 | curPriceQuote=0.04943790 | curAmtBase=1000.00000000 | pruning=false
+2020/04/06 18:35:22 offer | sell | level=2 | curPriceQuote=0.04944040 | curAmtBase=1000.00000000 | pruning=false
+2020/04/06 18:35:22 offer | sell | level=3 | curPriceQuote=0.04944290 | curAmtBase=1000.00000000 | pruning=false
+2020/04/06 18:35:22 offer | sell | level=4 | curPriceQuote=0.04944540 | curAmtBase=1000.00000000 | pruning=false
+2020/04/06 18:35:22 offer | sell | level=5 | curPriceQuote=0.04944780 | curAmtBase=973.49998990 | pruning=false
+2020/04/06 18:35:22 created 0 operations to prune excess offers
+2020/04/06 18:35:23 liabilities after resetting
+2020/04/06 18:35:23 asset=base  , balance=4999.99999000, trust=math.MaxFloat64, minAccountBal=26.50000000, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
+2020/04/06 18:35:23 asset=quote , balance=10000.00000000, trust=30000.00000000, minAccountBal=10.00000000, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
+2020/04/06 18:35:23 buy , done creating preceding offers (numLevelsConsumed=0, hitCapacityLimit=false, numOps=0, newTopOfferPrice=<nil>)
+2020/04/06 18:35:23 buy  | modify | old level=1 | new level = 1 | triggers=[price amount] | targetPriceQuote=0.04934507 | targetAmtBase=1000.00000002 | curPriceQuote=0.04942806 | lowPriceQuote=0.04929577 | highPriceQuote=0.04939446 | curAmtBase=1000.00000046 | minAmtBase=997.32263919 | maxAmtBase=999.31928111
+2020/04/06 18:35:23 buy  | modify | old level=2 | new level = 2 | triggers=[price amount] | targetPriceQuote=0.04934260 | targetAmtBase=1000.00000022 | curPriceQuote=0.04942559 | lowPriceQuote=0.04929331 | highPriceQuote=0.04939199 | curAmtBase=999.99999967 | minAmtBase=997.32263944 | maxAmtBase=999.31928136
+2020/04/06 18:35:23 buy  | modify | old level=3 | new level = 3 | triggers=[price amount] | targetPriceQuote=0.04934013 | targetAmtBase=1000.00000035 | curPriceQuote=0.04942312 | lowPriceQuote=0.04929084 | highPriceQuote=0.04938952 | curAmtBase=1000.00000085 | minAmtBase=997.32263964 | maxAmtBase=999.31928156
+2020/04/06 18:35:23 buy  | modify | old level=4 | new level = 4 | triggers=[price amount] | targetPriceQuote=0.04933767 | targetAmtBase=999.99999955 | curPriceQuote=0.04942064 | lowPriceQuote=0.04928838 | highPriceQuote=0.04938705 | curAmtBase=999.99999905 | minAmtBase=997.32263889 | maxAmtBase=999.31928081
+2020/04/06 18:35:23 buy  | modify | old level=5 | new level = 5 | triggers=[price amount] | targetPriceQuote=0.04933520 | targetAmtBase=1000.00000097 | curPriceQuote=0.04941817 | lowPriceQuote=0.04928591 | highPriceQuote=0.04938458 | curAmtBase=999.99999946 | minAmtBase=997.32264036 | maxAmtBase=999.31928228
+2020/04/06 18:35:23 sell, done creating preceding offers (numLevelsConsumed=0, hitCapacityLimit=false, numOps=0, newTopOfferPrice=<nil>)
+2020/04/06 18:35:23 sell | modify | old level=1 | new level = 1 | triggers=[price] | targetPriceQuote=0.04935590 | targetAmtBase=1000.00000000 | curPriceQuote=0.04943790 | lowPriceQuote=0.04930654 | highPriceQuote=0.04940526 | curAmtBase=1000.00000000 | minAmtBase=999.00000000 | maxAmtBase=1001.00000000
+2020/04/06 18:35:23 sell | modify | old level=2 | new level = 2 | triggers=[price] | targetPriceQuote=0.04935840 | targetAmtBase=1000.00000000 | curPriceQuote=0.04944040 | lowPriceQuote=0.04930904 | highPriceQuote=0.04940776 | curAmtBase=1000.00000000 | minAmtBase=999.00000000 | maxAmtBase=1001.00000000
+2020/04/06 18:35:23 sell | modify | old level=3 | new level = 3 | triggers=[price] | targetPriceQuote=0.04936090 | targetAmtBase=1000.00000000 | curPriceQuote=0.04944290 | lowPriceQuote=0.04931154 | highPriceQuote=0.04941026 | curAmtBase=1000.00000000 | minAmtBase=999.00000000 | maxAmtBase=1001.00000000
+2020/04/06 18:35:23 sell | modify | old level=4 | new level = 4 | triggers=[price] | targetPriceQuote=0.04936330 | targetAmtBase=1000.00000000 | curPriceQuote=0.04944540 | lowPriceQuote=0.04931394 | highPriceQuote=0.04941266 | curAmtBase=1000.00000000 | minAmtBase=999.00000000 | maxAmtBase=1001.00000000
+2020/04/06 18:35:23 sell | modify | old level=5 | new level = 5 | triggers=[price amount] | targetPriceQuote=0.04936580 | targetAmtBase=1000.00000000 | curPriceQuote=0.04944780 | lowPriceQuote=0.04931643 | highPriceQuote=0.04941517 | curAmtBase=973.49998990 | minAmtBase=999.00000000 | maxAmtBase=1001.00000000
+2020/04/06 18:35:23 we will oversell the asset 'native', amountSelling = 1000.00000000, bal = 4999.99999000, minAccountBal = 26.50000000, liabilities.Selling = 4000.00000000
+2020/04/06 18:35:23 computed remainder amount, constrained by selling capacity, returning sellingAmount=973.49999000, buyingAmount=48.05760581
+2020/04/06 18:35:23 sell | modify | old level=5 | new level = 5 | triggers=[price amount] | targetPriceQuote=0.04936580 | targetAmtBase=973.49999000 | curPriceQuote=0.04944780 | lowPriceQuote=0.04931643 | highPriceQuote=0.04941517 | curAmtBase=973.49998990 | minAmtBase=999.00000000 | maxAmtBase=1001.00000000
+2020/04/06 18:35:23 liabilities at the end of a call to UpdateWithOps
+2020/04/06 18:35:23 asset=base  , balance=4999.99999000, trust=math.MaxFloat64, minAccountBal=26.50000000, buyingLiabilities=5000.00000111, sellingLiabilities=4973.49999000
+2020/04/06 18:35:23 asset=quote , balance=10000.00000000, trust=30000.00000000, minAccountBal=10.00000000, buyingLiabilities=245.49610581, sellingLiabilities=246.70066120
+2020/04/06 18:35:23 orderConstraintsFilter:  buying, baseAmount=1000.00000097, quoteAmount=49.33519960, keep = true
+2020/04/06 18:35:23 orderConstraintsFilter:  buying, baseAmount=999.99999955, quoteAmount=49.33766550, keep = true
+2020/04/06 18:35:23 orderConstraintsFilter:  buying, baseAmount=1000.00000035, quoteAmount=49.34013200, keep = true
+2020/04/06 18:35:23 orderConstraintsFilter:  buying, baseAmount=1000.00000022, quoteAmount=49.34259870, keep = true
+2020/04/06 18:35:23 orderConstraintsFilter:  buying, baseAmount=1000.00000002, quoteAmount=49.34506540, keep = true
+2020/04/06 18:35:23 orderConstraintsFilter: selling, baseAmount=973.49999000, quoteAmount=48.05760581, keep = true
+2020/04/06 18:35:23 orderConstraintsFilter: selling, baseAmount=1000.00000000, quoteAmount=49.35590000, keep = true
+2020/04/06 18:35:23 orderConstraintsFilter: selling, baseAmount=1000.00000000, quoteAmount=49.35840000, keep = true
+2020/04/06 18:35:23 orderConstraintsFilter: selling, baseAmount=1000.00000000, quoteAmount=49.36090000, keep = true
+2020/04/06 18:35:23 orderConstraintsFilter: selling, baseAmount=1000.00000000, quoteAmount=49.36330000, keep = true
+2020/04/06 18:35:23 orderConstraintsFilter: dropped 0, kept 10 ops from original 10 ops, len(filteredOps) = 10
+2020/04/06 18:35:23 created 10 operations to update existing offers
+2020/04/06 18:35:23 lastFee <= maxOpFeeStroops; using last_ledger_base_fee of 100 stroops (maxOpFeeStroops = 5000)
+2020/04/06 18:35:23 tx XDR: AAAAALqdF80m16LlqCo+dHz7rvDodaPOX28OR/h+8Eb7qOKZAAAD6AAQkyUAAAADAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgAAAAEAAAAAXklP1iDRXmaY0QaJiS35Mn6Mimsmg+DCXmCbKnpXGDwAAAADAAAAAkNPVVBPTgAAAAAAAAAAAABYzLFaGLhSv4ICPKFVoofst3QfHCnyC/Yx4jgHIf+3fgAAAAAAAAAAHWf0PAJqk38AHoSAAAAAAABW2PYAAAABAAAAAF5JT9Yg0V5mmNEGiYkt+TJ+jIprJoPgwl5gmyp6Vxg8AAAAAwAAAAJDT1VQT04AAAAAAAAAAAAAWMyxWhi4Ur+CAjyhVaKH7Ld0Hxwp8gv2MeI4ByH/t34AAAAAAAAAAB1oVI8Bgpc9ABMS0AAAAAAAVtj1AAAAAQAAAABeSU/WINFeZpjRBomJLfkyfoyKayaD4MJeYJsqelcYPAAAAAMAAAACQ09VUE9OAAAAAAAAAAAAAFjMsVoYuFK/ggI8oVWih+y3dB8cKfIL9jHiOAch/7d+AAAAAAAAAAAdaLToAwUklQAmJaAAAAAAAFbY9AAAAAEAAAAAXklP1iDRXmaY0QaJiS35Mn6Mimsmg+DCXmCbKnpXGDwAAAADAAAAAkNPVVBPTgAAAAAAAAAAAABYzLFaGLhSv4ICPKFVoofst3QfHCnyC/Yx4jgHIf+3fgAAAAAAAAAAHWkVQwAJqe8AAHoSAAAAAABW2PMAAAABAAAAAF5JT9Yg0V5mmNEGiYkt+TJ+jIprJoPgwl5gmyp6Vxg8AAAAAwAAAAJDT1VQT04AAAAAAAAAAAAAWMyxWhi4Ur+CAjyhVaKH7Ld0Hxwp8gv2MeI4ByH/t34AAAAAAAAAAB1pdZ4MFEMtAJiWgAAAAAAAVtjyAAAAAQAAAABeSU/WINFeZpjRBomJLfkyfoyKayaD4MJeYJsqelcYPAAAAAMAAAAAAAAAAkNPVVBPTgAAAAAAAAAAAABYzLFaGLhSv4ICPKFVoofst3QfHCnyC/Yx4jgHIf+3fgAAAAJEQE9cAAPELQBMS0AAAAAAAFbY+wAAAAEAAAAAXklP1iDRXmaY0QaJiS35Mn6Mimsmg+DCXmCbKnpXGDwAAAADAAAAAAAAAAJDT1VQT04AAAAAAAAAAAAAWMyxWhi4Ur+CAjyhVaKH7Ld0Hxwp8gv2MeI4ByH/t34AAAACVAvkAAAHh/cAmJaAAAAAAABW2PcAAAABAAAAAF5JT9Yg0V5mmNEGiYkt+TJ+jIprJoPgwl5gmyp6Vxg8AAAAAwAAAAAAAAACQ09VUE9OAAAAAAAAAAAAAFjMsVoYuFK/ggI8oVWih+y3dB8cKfIL9jHiOAch/7d+AAAAAlQL5AAAAHiBAAmJaAAAAAAAVtj4AAAAAQAAAABeSU/WINFeZpjRBomJLfkyfoyKayaD4MJeYJsqelcYPAAAAAMAAAAAAAAAAkNPVVBPTgAAAAAAAAAAAABYzLFaGLhSv4ICPKFVoofst3QfHCnyC/Yx4jgHIf+3fgAAAAJUC+QAAAeIKQCYloAAAAAAAFbY+QAAAAEAAAAAXklP1iDRXmaY0QaJiS35Mn6Mimsmg+DCXmCbKnpXGDwAAAADAAAAAAAAAAJDT1VQT04AAAAAAAAAAAAAWMyxWhi4Ur+CAjyhVaKH7Ld0Hxwp8gv2MeI4ByH/t34AAAACVAvkAAAHiEEAmJaAAAAAAABW2PoAAAAAAAAAAvuo4pkAAABASI2g72k7AcAKzN/YhG+5PJn1y7zFIYVhQrCosC7u706JOJVJ8eQYBaW4vVrT8a2BxuwZMTrmAy9Pxtid9SOGD3pXGDwAAABAxyvDu2PIpPvoXNLHVEO8CcD/48CywfMyDppkR2T+K5xYl4+tP6gCsR6QE9Jn3uRoiRr6lKrgksuWre41qGh2AQ==
+2020/04/06 18:35:23 submitting tx XDR to network (async)
+2020/04/06 18:35:30 (async) tx confirmation hash: ce2fc72aba42abb536dca63e3509c7bf92eb20b585ad5b4910e830e8620d1e7e
+2020/04/06 18:35:30 ----------------------------------------------------------------------------------------------------
+2020/04/06 18:35:30 sleeping for 4m51.590440712s...
+2020/04/06 18:40:21 intervalTimeController tickInterval=5m0s, shouldUpdate=true, elapsedSinceUpdate=5m0.000260455s
+2020/04/06 18:40:22  (base) assetA=native, maxA=4999.99999000, trustA=math.MaxFloat64
+2020/04/06 18:40:22 (quote) assetB=COUPON:GBMMZMK2DC4FFP4CAI6KCVNCQ7WLO5A7DQU7EC7WGHRDQBZB763X4OQI, maxB=10000.00000000, trustB=30000.00000000
+2020/04/06 18:40:22 orderConstraints for trading pair XLM/COUPON: OrderConstraints[PricePrecision: 7, VolumePrecision: 7, MinBaseVolume: 0.0000001, MinQuoteVolume: <nil>]
+2020/04/06 18:40:22 liabilities after resetting
+2020/04/06 18:40:22 asset=base  , balance=4999.99999000, trust=math.MaxFloat64, minAccountBal=26.50000000, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
+2020/04/06 18:40:22 asset=quote , balance=10000.00000000, trust=30000.00000000, minAccountBal=10.00000000, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
+2020/04/06 18:40:22 returning kraken API key at index 0
+2020/04/06 18:40:22 (modifier: mid) price from exchange feed (kraken/XXLM/ZUSD/mid): bidPrice=0.049318, askPrice=0.049368, midPrice=0.049343, lastTradePrice=0.049644; price=0.049343
+2020/04/06 18:40:22 feedPair prices: feedA=1.00000000, feedB=0.04934300; price=20.26629917
+2020/04/06 18:40:22 returning kraken API key at index 0
+2020/04/06 18:40:23 (modifier: mid) price from exchange feed (kraken/XXLM/ZUSD/mid): bidPrice=0.049318, askPrice=0.049365, midPrice=0.049342, lastTradePrice=0.049644; price=0.049342
+2020/04/06 18:40:23 feedPair prices: feedA=0.04934200, feedB=1.00000000; price=0.04934200
+2020/04/06 18:40:23 offer | buy  | level=1 | curPriceQuote=0.04934507 | curAmtBase=1000.00000002 | pruning=false
+2020/04/06 18:40:23 offer | buy  | level=2 | curPriceQuote=0.04934260 | curAmtBase=1000.00000022 | pruning=false
+2020/04/06 18:40:23 offer | buy  | level=3 | curPriceQuote=0.04934013 | curAmtBase=1000.00000035 | pruning=false
+2020/04/06 18:40:23 offer | buy  | level=4 | curPriceQuote=0.04933767 | curAmtBase=999.99999955 | pruning=false
+2020/04/06 18:40:23 offer | buy  | level=5 | curPriceQuote=0.04933520 | curAmtBase=1000.00000097 | pruning=false
+2020/04/06 18:40:23 offer | sell | level=1 | curPriceQuote=0.04935590 | curAmtBase=1000.00000000 | pruning=false
+2020/04/06 18:40:23 offer | sell | level=2 | curPriceQuote=0.04935840 | curAmtBase=1000.00000000 | pruning=false
+2020/04/06 18:40:23 offer | sell | level=3 | curPriceQuote=0.04936090 | curAmtBase=1000.00000000 | pruning=false
+2020/04/06 18:40:23 offer | sell | level=4 | curPriceQuote=0.04936330 | curAmtBase=1000.00000000 | pruning=false
+2020/04/06 18:40:23 offer | sell | level=5 | curPriceQuote=0.04936580 | curAmtBase=973.49998990 | pruning=false
+2020/04/06 18:40:23 created 0 operations to prune excess offers
+2020/04/06 18:40:23 liabilities after resetting
+2020/04/06 18:40:23 asset=base  , balance=4999.99999000, trust=math.MaxFloat64, minAccountBal=26.50000000, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
+2020/04/06 18:40:23 asset=quote , balance=10000.00000000, trust=30000.00000000, minAccountBal=10.00000000, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
+2020/04/06 18:40:23 buy , done creating preceding offers (numLevelsConsumed=0, hitCapacityLimit=false, numOps=0, newTopOfferPrice=<nil>)
+2020/04/06 18:40:23 buy  | modify | unmodified original level = 1 | newLevel number = 1
+2020/04/06 18:40:23 buy  | modify | unmodified original level = 2 | newLevel number = 2
+2020/04/06 18:40:23 buy  | modify | unmodified original level = 3 | newLevel number = 3
+2020/04/06 18:40:23 buy  | modify | unmodified original level = 4 | newLevel number = 4
+2020/04/06 18:40:23 buy  | modify | unmodified original level = 5 | newLevel number = 5
+2020/04/06 18:40:23 sell, done creating preceding offers (numLevelsConsumed=0, hitCapacityLimit=false, numOps=0, newTopOfferPrice=<nil>)
+2020/04/06 18:40:23 sell | modify | unmodified original level = 1 | newLevel number = 1
+2020/04/06 18:40:23 sell | modify | unmodified original level = 2 | newLevel number = 2
+2020/04/06 18:40:23 sell | modify | unmodified original level = 3 | newLevel number = 3
+2020/04/06 18:40:23 sell | modify | unmodified original level = 4 | newLevel number = 4
+2020/04/06 18:40:23 sell | modify | old level=5 | new level = 5 | triggers=[amount] | targetPriceQuote=0.04935680 | targetAmtBase=1000.00000000 | curPriceQuote=0.04936580 | lowPriceQuote=0.04930744 | highPriceQuote=0.04940616 | curAmtBase=973.49998990 | minAmtBase=999.00000000 | maxAmtBase=1001.00000000
+2020/04/06 18:40:23 we will oversell the asset 'native', amountSelling = 1000.00000000, bal = 4999.99999000, minAccountBal = 26.50000000, liabilities.Selling = 4000.00000000
+2020/04/06 18:40:23 computed remainder amount, constrained by selling capacity, returning sellingAmount=973.49999000, buyingAmount=48.04884431
+2020/04/06 18:40:23 sell | modify | old level=5 | new level = 5 | triggers=[amount] | targetPriceQuote=0.04935680 | targetAmtBase=973.49999000 | curPriceQuote=0.04936580 | lowPriceQuote=0.04930744 | highPriceQuote=0.04940616 | curAmtBase=973.49998990 | minAmtBase=999.00000000 | maxAmtBase=1001.00000000
+2020/04/06 18:40:23 liabilities at the end of a call to UpdateWithOps
+2020/04/06 18:40:23 asset=base  , balance=4999.99999000, trust=math.MaxFloat64, minAccountBal=26.50000000, buyingLiabilities=5000.00000111, sellingLiabilities=4973.49999000
+2020/04/06 18:40:23 asset=quote , balance=10000.00000000, trust=30000.00000000, minAccountBal=10.00000000, buyingLiabilities=245.48734431, sellingLiabilities=246.70066120
+2020/04/06 18:40:23 orderConstraintsFilter: selling, baseAmount=973.49999000, quoteAmount=48.04884431, keep = true
+2020/04/06 18:40:23 orderConstraintsFilter: dropped 0, kept 1 ops from original 1 ops, len(filteredOps) = 1
+2020/04/06 18:40:23 created 1 operations to update existing offers
+2020/04/06 18:40:23 lastFee <= maxOpFeeStroops; using last_ledger_base_fee of 100 stroops (maxOpFeeStroops = 5000)
+2020/04/06 18:40:23 tx XDR: AAAAALqdF80m16LlqCo+dHz7rvDodaPOX28OR/h+8Eb7qOKZAAAAZAAQkyUAAAAEAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAXklP1iDRXmaY0QaJiS35Mn6Mimsmg+DCXmCbKnpXGDwAAAADAAAAAAAAAAJDT1VQT04AAAAAAAAAAAAAWMyxWhi4Ur+CAjyhVaKH7Ld0Hxwp8gv2MeI4ByH/t34AAAACREBPXAAADxAAATEtAAAAAABW2PsAAAAAAAAAAvuo4pkAAABAtODfQMc2+CzdIFtaUyXatauEs+dTQ/E88XuiQiz3vQOR9FtOvZvWSD01la8Bpx1KMvttLw7PTBSQhj8ELGSAA3pXGDwAAABA7DOxdUUF9NyHezrVsh44dGnGHGb4bKyLEhzQRLGtDxL08RBS0181wIcW3dHb/5tex7ejL74AfIIn7+CtSgl5Dg==
+2020/04/06 18:40:23 submitting tx XDR to network (async)
+2020/04/06 18:40:25 (async) tx confirmation hash: 965be3364b6c54f9bcc4055c9914f500ce54a93335148b223b8fef30edb48a3b
+2020/04/06 18:40:25 ----------------------------------------------------------------------------------------------------
+2020/04/06 18:40:25 sleeping for 4m56.574029172s...
+2020/04/06 18:45:21 intervalTimeController tickInterval=5m0s, shouldUpdate=true, elapsedSinceUpdate=5m0.00033535s
+2020/04/06 18:45:22  (base) assetA=native, maxA=4999.99999000, trustA=math.MaxFloat64
+2020/04/06 18:45:22 (quote) assetB=COUPON:GBMMZMK2DC4FFP4CAI6KCVNCQ7WLO5A7DQU7EC7WGHRDQBZB763X4OQI, maxB=10000.00000000, trustB=30000.00000000
+2020/04/06 18:45:22 orderConstraints for trading pair XLM/COUPON: OrderConstraints[PricePrecision: 7, VolumePrecision: 7, MinBaseVolume: 0.0000001, MinQuoteVolume: <nil>]
+2020/04/06 18:45:22 liabilities after resetting
+2020/04/06 18:45:22 asset=base  , balance=4999.99999000, trust=math.MaxFloat64, minAccountBal=26.50000000, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
+2020/04/06 18:45:22 asset=quote , balance=10000.00000000, trust=30000.00000000, minAccountBal=10.00000000, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
+2020/04/06 18:45:22 returning kraken API key at index 0
+2020/04/06 18:45:23 (modifier: mid) price from exchange feed (kraken/XXLM/ZUSD/mid): bidPrice=0.049415, askPrice=0.049489, midPrice=0.049452, lastTradePrice=0.049323; price=0.049452
+2020/04/06 18:45:23 feedPair prices: feedA=1.00000000, feedB=0.04945200; price=20.22162905
+2020/04/06 18:45:23 returning kraken API key at index 0
+2020/04/06 18:45:23 (modifier: mid) price from exchange feed (kraken/XXLM/ZUSD/mid): bidPrice=0.049415, askPrice=0.049489, midPrice=0.049452, lastTradePrice=0.049323; price=0.049452
+2020/04/06 18:45:23 feedPair prices: feedA=0.04945200, feedB=1.00000000; price=0.04945200
+2020/04/06 18:45:23 offer | buy  | level=1 | curPriceQuote=0.04934507 | curAmtBase=1000.00000002 | pruning=false
+2020/04/06 18:45:23 offer | buy  | level=2 | curPriceQuote=0.04934260 | curAmtBase=1000.00000022 | pruning=false
+2020/04/06 18:45:23 offer | buy  | level=3 | curPriceQuote=0.04934013 | curAmtBase=1000.00000035 | pruning=false
+2020/04/06 18:45:23 offer | buy  | level=4 | curPriceQuote=0.04933767 | curAmtBase=999.99999955 | pruning=false
+2020/04/06 18:45:23 offer | buy  | level=5 | curPriceQuote=0.04933520 | curAmtBase=1000.00000097 | pruning=false
+2020/04/06 18:45:23 offer | sell | level=1 | curPriceQuote=0.04935590 | curAmtBase=1000.00000000 | pruning=false
+2020/04/06 18:45:23 offer | sell | level=2 | curPriceQuote=0.04935680 | curAmtBase=973.49998990 | pruning=false
+2020/04/06 18:45:23 offer | sell | level=3 | curPriceQuote=0.04935840 | curAmtBase=1000.00000000 | pruning=false
+2020/04/06 18:45:23 offer | sell | level=4 | curPriceQuote=0.04936090 | curAmtBase=1000.00000000 | pruning=false
+2020/04/06 18:45:23 offer | sell | level=5 | curPriceQuote=0.04936330 | curAmtBase=1000.00000000 | pruning=false
+2020/04/06 18:45:23 created 0 operations to prune excess offers
+2020/04/06 18:45:23 liabilities after resetting
+2020/04/06 18:45:23 asset=base  , balance=4999.99999000, trust=math.MaxFloat64, minAccountBal=26.50000000, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
+2020/04/06 18:45:23 asset=quote , balance=10000.00000000, trust=30000.00000000, minAccountBal=10.00000000, buyingLiabilities=0.00000000, sellingLiabilities=0.00000000
+2020/04/06 18:45:23 buy , done creating preceding offers (numLevelsConsumed=0, hitCapacityLimit=false, numOps=0, newTopOfferPrice=<nil>)
+2020/04/06 18:45:23 buy  | modify | old level=1 | new level = 1 | triggers=[price amount] | targetPriceQuote=0.04944706 | targetAmtBase=999.99999925 | curPriceQuote=0.04934507 | lowPriceQuote=0.04939766 | highPriceQuote=0.04949655 | curAmtBase=1000.00000002 | minAmtBase=1001.06480446 | maxAmtBase=1003.06893820
+2020/04/06 18:45:23 buy  | modify | old level=2 | new level = 2 | triggers=[price amount] | targetPriceQuote=0.04944458 | targetAmtBase=999.99999981 | curPriceQuote=0.04934260 | lowPriceQuote=0.04939519 | highPriceQuote=0.04949408 | curAmtBase=1000.00000022 | minAmtBase=1001.06480058 | maxAmtBase=1003.06893431
+2020/04/06 18:45:23 buy  | modify | old level=3 | new level = 3 | triggers=[price amount] | targetPriceQuote=0.04944211 | targetAmtBase=999.99999941 | curPriceQuote=0.04934013 | lowPriceQuote=0.04939272 | highPriceQuote=0.04949160 | curAmtBase=1000.00000035 | minAmtBase=1001.06480068 | maxAmtBase=1003.06893441
+2020/04/06 18:45:23 buy  | modify | old level=4 | new level = 4 | triggers=[price amount] | targetPriceQuote=0.04943964 | targetAmtBase=1000.00000007 | curPriceQuote=0.04933767 | lowPriceQuote=0.04939025 | highPriceQuote=0.04948913 | curAmtBase=999.99999955 | minAmtBase=1001.06480185 | maxAmtBase=1003.06893559
+2020/04/06 18:45:23 buy  | modify | old level=5 | new level = 5 | triggers=[price amount] | targetPriceQuote=0.04943717 | targetAmtBase=1000.00000091 | curPriceQuote=0.04933520 | lowPriceQuote=0.04938778 | highPriceQuote=0.04948666 | curAmtBase=1000.00000097 | minAmtBase=1001.06480321 | maxAmtBase=1003.06893695
+2020/04/06 18:45:23 sell, done creating preceding offers (numLevelsConsumed=0, hitCapacityLimit=false, numOps=0, newTopOfferPrice=<nil>)
+2020/04/06 18:45:23 sell | modify | old level=1 | new level = 1 | triggers=[price] | targetPriceQuote=0.04945690 | targetAmtBase=1000.00000000 | curPriceQuote=0.04935590 | lowPriceQuote=0.04940744 | highPriceQuote=0.04950636 | curAmtBase=1000.00000000 | minAmtBase=999.00000000 | maxAmtBase=1001.00000000
+2020/04/06 18:45:23 sell | modify | old level=2 | new level = 2 | triggers=[price amount] | targetPriceQuote=0.04945940 | targetAmtBase=1000.00000000 | curPriceQuote=0.04935680 | lowPriceQuote=0.04940994 | highPriceQuote=0.04950886 | curAmtBase=973.49998990 | minAmtBase=999.00000000 | maxAmtBase=1001.00000000
+2020/04/06 18:45:23 sell | modify | old level=3 | new level = 3 | triggers=[price] | targetPriceQuote=0.04946190 | targetAmtBase=1000.00000000 | curPriceQuote=0.04935840 | lowPriceQuote=0.04941244 | highPriceQuote=0.04951136 | curAmtBase=1000.00000000 | minAmtBase=999.00000000 | maxAmtBase=1001.00000000
+2020/04/06 18:45:23 sell | modify | old level=4 | new level = 4 | triggers=[price] | targetPriceQuote=0.04946440 | targetAmtBase=1000.00000000 | curPriceQuote=0.04936090 | lowPriceQuote=0.04941494 | highPriceQuote=0.04951386 | curAmtBase=1000.00000000 | minAmtBase=999.00000000 | maxAmtBase=1001.00000000
+2020/04/06 18:45:23 we will oversell the native asset after considering fee and min reserves, incrementalNativeAmount = 1000.00000000, nativeBal = 4999.99999000, minAccountBal = 26.50000000, nativeLiabilities.Selling = 4000.00000000
+2020/04/06 18:45:23 sell | modify | old level=5 | new level = 5 | triggers=[price oversell] | targetPriceQuote=0.04946680 | targetAmtBase=1000.00000000 | curPriceQuote=0.04936330 | lowPriceQuote=0.04941733 | highPriceQuote=0.04951627 | curAmtBase=1000.00000000 | minAmtBase=999.00000000 | maxAmtBase=1001.00000000
+2020/04/06 18:45:23 we will oversell the asset 'native', amountSelling = 1000.00000000, bal = 4999.99999000, minAccountBal = 26.50000000, liabilities.Selling = 4000.00000000
+2020/04/06 18:45:23 computed remainder amount, constrained by selling capacity, returning sellingAmount=973.49999000, buyingAmount=48.15592931
+2020/04/06 18:45:23 sell | modify | old level=5 | new level = 5 | triggers=[price oversell] | targetPriceQuote=0.04946680 | targetAmtBase=973.49999000 | curPriceQuote=0.04936330 | lowPriceQuote=0.04941733 | highPriceQuote=0.04951627 | curAmtBase=1000.00000000 | minAmtBase=999.00000000 | maxAmtBase=1001.00000000
+2020/04/06 18:45:23 liabilities at the end of a call to UpdateWithOps
+2020/04/06 18:45:23 asset=base  , balance=4999.99999000, trust=math.MaxFloat64, minAccountBal=26.50000000, buyingLiabilities=4999.99999945, sellingLiabilities=4973.49999000
+2020/04/06 18:45:23 asset=quote , balance=10000.00000000, trust=30000.00000000, minAccountBal=10.00000000, buyingLiabilities=245.99852931, sellingLiabilities=247.21055910
+2020/04/06 18:45:23 orderConstraintsFilter: selling, baseAmount=973.49999000, quoteAmount=48.15592931, keep = true
+2020/04/06 18:45:23 orderConstraintsFilter: selling, baseAmount=1000.00000000, quoteAmount=49.45690000, keep = true
+2020/04/06 18:45:23 orderConstraintsFilter: selling, baseAmount=1000.00000000, quoteAmount=49.45940000, keep = true
+2020/04/06 18:45:23 orderConstraintsFilter: selling, baseAmount=1000.00000000, quoteAmount=49.46190000, keep = true
+2020/04/06 18:45:23 orderConstraintsFilter: selling, baseAmount=1000.00000000, quoteAmount=49.46440000, keep = true
+2020/04/06 18:45:23 orderConstraintsFilter:  buying, baseAmount=999.99999925, quoteAmount=49.44705530, keep = true
+2020/04/06 18:45:23 orderConstraintsFilter:  buying, baseAmount=999.99999981, quoteAmount=49.44458330, keep = true
+2020/04/06 18:45:23 orderConstraintsFilter:  buying, baseAmount=999.99999941, quoteAmount=49.44211150, keep = true
+2020/04/06 18:45:23 orderConstraintsFilter:  buying, baseAmount=1000.00000007, quoteAmount=49.43964000, keep = true
+2020/04/06 18:45:23 orderConstraintsFilter:  buying, baseAmount=1000.00000091, quoteAmount=49.43716900, keep = true
+2020/04/06 18:45:23 orderConstraintsFilter: dropped 0, kept 10 ops from original 10 ops, len(filteredOps) = 10
+2020/04/06 18:45:23 created 10 operations to update existing offers
+2020/04/06 18:45:23 lastFee <= maxOpFeeStroops; using last_ledger_base_fee of 100 stroops (maxOpFeeStroops = 5000)
+2020/04/06 18:45:23 tx XDR: AAAAALqdF80m16LlqCo+dHz7rvDodaPOX28OR/h+8Eb7qOKZAAAD6AAQkyUAAAAFAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgAAAAEAAAAAXklP1iDRXmaY0QaJiS35Mn6Mimsmg+DCXmCbKnpXGDwAAAADAAAAAAAAAAJDT1VQT04AAAAAAAAAAAAAWMyxWhi4Ur+CAjyhVaKH7Ld0Hxwp8gv2MeI4ByH/t34AAAACREBPXAAB4xMAJiWgAAAAAABW2PoAAAABAAAAAF5JT9Yg0V5mmNEGiYkt+TJ+jIprJoPgwl5gmyp6Vxg8AAAAAwAAAAAAAAACQ09VUE9OAAAAAAAAAAAAAFjMsVoYuFK/ggI8oVWih+y3dB8cKfIL9jHiOAch/7d+AAAAAlQL5AAAB4vpAJiWgAAAAAAAVtj3AAAAAQAAAABeSU/WINFeZpjRBomJLfkyfoyKayaD4MJeYJsqelcYPAAAAAMAAAAAAAAAAkNPVVBPTgAAAAAAAAAAAABYzLFaGLhSv4ICPKFVoofst3QfHCnyC/Yx4jgHIf+3fgAAAAJUC+QAAAPGAQBMS0AAAAAAAFbY+wAAAAEAAAAAXklP1iDRXmaY0QaJiS35Mn6Mimsmg+DCXmCbKnpXGDwAAAADAAAAAAAAAAJDT1VQT04AAAAAAAAAAAAAWMyxWhi4Ur+CAjyhVaKH7Ld0Hxwp8gv2MeI4ByH/t34AAAACVAvkAAAHjBsAmJaAAAAAAABW2PgAAAABAAAAAF5JT9Yg0V5mmNEGiYkt+TJ+jIprJoPgwl5gmyp6Vxg8AAAAAwAAAAAAAAACQ09VUE9OAAAAAAAAAAAAAFjMsVoYuFK/ggI8oVWih+y3dB8cKfIL9jHiOAch/7d+AAAAAlQL5AAAAeMNACYloAAAAAAAVtj5AAAAAQAAAABeSU/WINFeZpjRBomJLfkyfoyKayaD4MJeYJsqelcYPAAAAAMAAAACQ09VUE9OAAAAAAAAAAAAAFjMsVoYuFK/ggI8oVWih+y3dB8cKfIL9jHiOAch/7d+AAAAAAAAAAAdeQWZAGBvEwAExLQAAAAAAFbY8gAAAAEAAAAAXklP1iDRXmaY0QaJiS35Mn6Mimsmg+DCXmCbKnpXGDwAAAADAAAAAkNPVVBPTgAAAAAAAAAAAABYzLFaGLhSv4ICPKFVoofst3QfHCnyC/Yx4jgHIf+3fgAAAAAAAAAAHXilCQwOCd8AmJaAAAAAAABW2PMAAAABAAAAAF5JT9Yg0V5mmNEGiYkt+TJ+jIprJoPgwl5gmyp6Vxg8AAAAAwAAAAJDT1VQT04AAAAAAAAAAAAAWMyxWhi4Ur+CAjyhVaKH7Ld0Hxwp8gv2MeI4ByH/t34AAAAAAAAAAB14RHsGBxivAExLQAAAAAAAVtj0AAAAAQAAAABeSU/WINFeZpjRBomJLfkyfoyKayaD4MJeYJsqelcYPAAAAAMAAAACQ09VUE9OAAAAAAAAAAAAAFjMsVoYuFK/ggI8oVWih+y3dB8cKfIL9jHiOAch/7d+AAAAAAAAAAAdd+PwAmlE+QAehIAAAAAAAFbY9QAAAAEAAAAAXklP1iDRXmaY0QaJiS35Mn6Mimsmg+DCXmCbKnpXGDwAAAADAAAAAkNPVVBPTgAAAAAAAAAAAABYzLFaGLhSv4ICPKFVoofst3QfHCnyC/Yx4jgHIf+3fgAAAAAAAAAAHXeDagJpTN8AHoSAAAAAAABW2PYAAAAAAAAAAvuo4pkAAABAnnZNtZ8nsLlUteNaMkZZ+V0oaTjzqjJjIwxpJYGkhgsDLfxbmIFeRzDTbFmhRewLLTVTRjKuQliwyxkgdOw9CnpXGDwAAABAHeWSyubK/0vBt3916msxbK7VFAHXKBEphhxFXAbmNMSsPIWXkBCQR7MMCvms9jgRkdES/RR2J28D4twdvAQoDw==
+2020/04/06 18:45:23 submitting tx XDR to network (async)
+2020/04/06 18:45:27 (async) tx confirmation hash: 73ebc025ac9da8068a32d27b382c03e38ace7022ff40da89ff676d40ef481760
+2020/04/06 18:45:27 ----------------------------------------------------------------------------------------------------
+2020/04/06 18:45:27 sleeping for 4m54.565078825s...
+^CMakefile:43: recipe for target 'buysell' failed
 make: *** [buysell] Interrupt
 
-alec@miasrv:~/go/src/github.com/amissine/stellar_kelp_examples$ 
-alec@miasrv:~/go/src/github.com/amissine/stellar_kelp_examples$ 
+alec@miasrv ~/go/src/github.com/amissine/stellar_kelp_examples (master) $ 

@@ -1,5 +1,3 @@
-# vim :set foldmethod=marker {{{1
-#
 # Legal stuff {{{1
 #
 # Copyright 2020 Alec Missine (alec_missine@yahoo.com)
@@ -44,41 +42,48 @@ default_recipe: buysell
 buysell: cfg/buysell.cfg cfg/trader.cfg
 	@kelp trade --botConf cfg/trader.cfg --strategy buysell --stratConf cfg/buysell.cfg
 
+# Update cfg/buysell.cfg {{{1
 cfg/buysell.cfg:
 	cp $@.src $@
 
+# Update cfg/trader.cfg {{{1
 cfg/trader.cfg: add_trader_account.run fund_trader_account.run
 	@echo "export TRADER_PUBLIC_KEY=$$(cat add_trader_account.run | grep address | awk '{print $$2}')" > e; \
 	echo "export TRADER_SECRET_SEED=$$(cat add_trader_account.run | grep seed | awk '{print $$2}')" >> e; \
-	echo "export SOURCE_PUBLIC_KEY=$$(cat fund_source_account.run | grep address | awk '{print $$2}')" >> e; \
-	echo "export SOURCE_SECRET_SEED=$$(cat fund_source_account.run | grep seed | awk '{print $$2}')" >> e; \
+	echo "export SOURCE_PUBLIC_KEY=$$(cat add_source_account.run | grep address | awk '{print $$2}')" >> e; \
+	echo "export SOURCE_SECRET_SEED=$$(cat add_source_account.run | grep seed | awk '{print $$2}')" >> e; \
 	. e; rm e; \
 	sed "s/{TRADER_PUBLIC_KEY}/$${TRADER_PUBLIC_KEY}/g" <./cfg/trader.cfg.src | \
 	sed "s/{TRADER_SECRET_SEED}/$${TRADER_SECRET_SEED}/g" | \
 	sed "s/{SOURCE_PUBLIC_KEY}/$${SOURCE_PUBLIC_KEY}/g" | \
 	sed "s/{SOURCE_SECRET_SEED}/$${SOURCE_SECRET_SEED}/g" >cfg/trader.cfg
 
+# Add trader account {{{1
 add_trader_account.run: add_source_account.run
 	@echo "export SOURCE_ACCOUNT_SEED=$$(cat add_source_account.run | grep seed | awk '{print $$2}')" > e; \
 	. e; rm e; \
 	$(CONF) addaccount --accountSeed "$$SOURCE_ACCOUNT_SEED" > $@
 
+# Fund trader account {{{1
+fund_trader_account.run: add_trader_account.run
+	@echo "export ACCOUNT_SEED=$$(cat add_trader_account.run | grep seed | awk '{print $$2}')" > e; \
+	. e; rm e; \
+	$(CONF) fundaccount --issuerSeed $(ISSUER_SEED) --accountSeed "$$ACCOUNT_SEED" --asset COUPON > $@
+
+# Add source account {{{1
 add_source_account.run: $(CONF)
 	$(CONF) addaccount > $@
 
 $(CONF): main.go $(COMMANDS)
 	go build -o $@
 
+# Fund source account {{{1
 fund_source_account.run: add_source_account.run
 	@echo "export SOURCE_ACCOUNT_SEED=$$(cat add_source_account.run | grep seed | awk '{print $$2}')" > e; \
 	. e; rm e; \
 	$(CONF) fundaccount --issuerSeed $(ISSUER_SEED) --accountSeed "$$SOURCE_ACCOUNT_SEED" --asset COUPON > $@
 
-fund_trader_account.run: # add_trader_account.run
-	@echo "export ACCOUNT_SEED=$$(cat add_trader_account.run | grep seed | awk '{print $$2}')" > e; \
-	. e; rm e; \
-	$(CONF) fundaccount --issuerSeed $(ISSUER_SEED) --accountSeed "$$ACCOUNT_SEED" --asset COUPON > $@
-
+# Unreferenced recipies/files/dirs {{{1
 reset:
 	touch add_source_account.run add_trader_account.run fund_source_account.run vendor
 
