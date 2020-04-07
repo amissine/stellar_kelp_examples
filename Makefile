@@ -77,15 +77,9 @@ add_source_account.run: $(CONF)
 $(CONF): main.go $(COMMANDS)
 	go build -o $@
 
-# Fund source account {{{1
-fund_source_account.run: add_source_account.run
-	@echo "export SOURCE_ACCOUNT_SEED=$$(cat add_source_account.run | grep seed | awk '{print $$2}')" > e; \
-	. e; rm e; \
-	$(CONF) fundaccount --issuerSeed $(ISSUER_SEED) --accountSeed "$$SOURCE_ACCOUNT_SEED" --asset COUPON > $@
-
 # Unreferenced recipies/files/dirs {{{1
 reset:
-	touch add_source_account.run add_trader_account.run fund_source_account.run vendor
+	touch add_source_account.run add_trader_account.run vendor
 
 vendor: vendor.zip # create vendor.zip with 'zip -qr vendor vendor'
 	@unzip vendor.zip
