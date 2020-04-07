@@ -26,7 +26,7 @@ SHELL := bash
 
 # Locals {{{1
 
-RECIPES = buysell reset \
+RECIPES = buysell reset terminate \
 					default_recipe
 
 .PHONY: $(RECIPES)
@@ -77,7 +77,19 @@ add_source_account.run: $(CONF)
 $(CONF): main.go $(COMMANDS)
 	go build -o $@
 
-# Unreferenced recipies/files/dirs {{{1
+# Terminate offers across all inactive bots {{{1
+terminate: cfg/terminator.cfg
+	@kelp $@ --conf $<
+
+# Update cfg/terminator.cfg {{{1
+cfg/terminator.cfg: add_trader_account.run add_source_account.run
+	@echo "export TRADER_SECRET_SEED=$$(cat add_trader_account.run | grep seed | awk '{print $$2}')" > e; \
+	echo "export SOURCE_SECRET_SEED=$$(cat add_source_account.run | grep seed | awk '{print $$2}')" >> e; \
+	. e; rm e; \
+	sed "s/{TRADER_SECRET_SEED}/$${TRADER_SECRET_SEED}/g" <cfg/terminator.cfg.src | \
+	sed "s/{SOURCE_SECRET_SEED}/$${SOURCE_SECRET_SEED}/g" >cfg/terminator.cfg
+
+# Other unreferenced recipes/files/dirs {{{1
 reset:
 	touch add_source_account.run add_trader_account.run vendor
 
