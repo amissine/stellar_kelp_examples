@@ -18,7 +18,7 @@ ISSUER_B="GBMMZMK2DC4FFP4CAI6KCVNCQ7WLO5A7DQU7EC7WGHRDQBZB763X4OQI"
 # how often you want the bot to run
 TICK_INTERVAL_SECONDS=300
 # randomized interval delay in millis
-MAX_TICK_DELAY_MILLIS=0
+MAX_TICK_DELAY_MILLIS=2000
 
 # the mode to use when submitting - maker_only, both (default)
 # when trading on a non-SDEX exchange the only supported mode is "both"
@@ -32,10 +32,10 @@ SUBMIT_MODE="both"
 # example: use -1 if you never want to delete all offers (this is not recommended).
 # example: use 0 if you want to delete all offers on any error.
 # example: use 2 if you want to tolerate 2 continuous update cycles with errors, i.e. 3 continuous update cycles with errors will delete all offers.
-DELETE_CYCLES_THRESHOLD=0
+DELETE_CYCLES_THRESHOLD=1
 # how many milliseconds to sleep before checking for fills again, a value of 0 disables fill tracking
 # fill tracking is not supported when trading on a non-SDEX exchange (i.e. set it to 0)
-FILL_TRACKER_SLEEP_MILLIS=0
+FILL_TRACKER_SLEEP_MILLIS=30000
 # how many continuous errors in each fill-tracking cycle can the bot accept before it will delete all offers to protect its exposure.
 # this number has to be exceeded for all the offers to be deleted and any error will be counted only once per cycle.
 # any time the bot completes a full run successfully this counter will be reset.
@@ -44,7 +44,7 @@ FILL_TRACKER_SLEEP_MILLIS=0
 # example: use -1 if you never want to delete all offers (this is not recommended).
 # example: use 0 if you want to delete all offers on any error.
 # example: use 2 if you want to tolerate 2 continuous cycles with errors, i.e. 3 continuous cycles with errors will delete all offers.
-FILL_TRACKER_DELETE_CYCLES_THRESHOLD=0
+FILL_TRACKER_DELETE_CYCLES_THRESHOLD=2
 # uncomment if we want to override what is used as the last trade cursor when loading filled trades
 #FILL_TRACKER_LAST_TRADE_CURSOR_OVERRIDE="1570415431000"
 # the url for your horizon instance. If this url contains the string "test" then the bot assumes it is using the test network.

@@ -7,61 +7,61 @@ map  :cprevious
 map  :cnext
 vmap gx <Plug>NetrwBrowseXVis
 nmap gx <Plug>NetrwBrowseX
-nnoremap <silent> <Plug>(go-diagnostics) :call go#lint#Diagnostics(!g:go_jump_to_error)
-nnoremap <silent> <Plug>(go-iferr) :call go#iferr#Generate()
-nnoremap <silent> <Plug>(go-alternate-split) :call go#alternate#Switch(0, "split")
-nnoremap <silent> <Plug>(go-alternate-vertical) :call go#alternate#Switch(0, "vsplit")
-nnoremap <silent> <Plug>(go-alternate-edit) :call go#alternate#Switch(0, "edit")
-nnoremap <silent> <Plug>(go-vet) :call go#lint#Vet(!g:go_jump_to_error)
-nnoremap <silent> <Plug>(go-lint) :call go#lint#Golint(!g:go_jump_to_error)
-nnoremap <silent> <Plug>(go-metalinter) :call go#lint#Gometa(!g:go_jump_to_error, 0)
-nnoremap <silent> <Plug>(go-doc-browser) :call go#doc#OpenBrowser()
-nnoremap <silent> <Plug>(go-doc-split) :call go#doc#Open("new", "split")
-nnoremap <silent> <Plug>(go-doc-vertical) :call go#doc#Open("vnew", "vsplit")
-nnoremap <silent> <Plug>(go-doc-tab) :call go#doc#Open("tabnew", "tabe")
-nnoremap <silent> <Plug>(go-doc) :call go#doc#Open("new", "split")
-nnoremap <silent> <Plug>(go-def-stack-clear) :call go#def#StackClear()
-nnoremap <silent> <Plug>(go-def-stack) :call go#def#Stack()
-nnoremap <silent> <Plug>(go-def-pop) :call go#def#StackPop()
-nnoremap <silent> <Plug>(go-def-type-tab) :call go#def#Jump("tab", 1)
-nnoremap <silent> <Plug>(go-def-type-split) :call go#def#Jump("split", 1)
-nnoremap <silent> <Plug>(go-def-type-vertical) :call go#def#Jump("vsplit", 1)
-nnoremap <silent> <Plug>(go-def-type) :call go#def#Jump('', 1)
-nnoremap <silent> <Plug>(go-def-tab) :call go#def#Jump("tab", 0)
-nnoremap <silent> <Plug>(go-def-split) :call go#def#Jump("split", 0)
-nnoremap <silent> <Plug>(go-def-vertical) :call go#def#Jump("vsplit", 0)
-nnoremap <silent> <Plug>(go-def) :call go#def#Jump('', 0)
-nnoremap <silent> <Plug>(go-decls-dir) :call go#decls#Decls(1, '')
-nnoremap <silent> <Plug>(go-decls) :call go#decls#Decls(0, '')
-nnoremap <silent> <Plug>(go-rename) :call go#rename#Rename(!g:go_jump_to_error)
-nnoremap <silent> <Plug>(go-sameids-toggle) :call go#guru#ToggleSameIds()
-nnoremap <silent> <Plug>(go-whicherrs) :call go#guru#Whicherrs(-1)
-nnoremap <silent> <Plug>(go-pointsto) :call go#guru#PointsTo(-1)
-nnoremap <silent> <Plug>(go-sameids) :call go#guru#SameIds(1)
-nnoremap <silent> <Plug>(go-referrers) :call go#referrers#Referrers(-1)
-nnoremap <silent> <Plug>(go-channelpeers) :call go#guru#ChannelPeers(-1)
-xnoremap <silent> <Plug>(go-freevars) :call go#guru#Freevars(0)
-nnoremap <silent> <Plug>(go-callstack) :call go#guru#Callstack(-1)
-nnoremap <silent> <Plug>(go-describe) :call go#guru#Describe(-1)
-nnoremap <silent> <Plug>(go-callers) :call go#guru#Callers(-1)
-nnoremap <silent> <Plug>(go-callees) :call go#guru#Callees(-1)
-nnoremap <silent> <Plug>(go-implements) :call go#guru#Implements(-1)
-nnoremap <silent> <Plug>(go-imports) :call go#fmt#Format(1)
-nnoremap <silent> <Plug>(go-import) :call go#import#SwitchImport(1, '', expand('<cword>'), '')
-nnoremap <silent> <Plug>(go-info) :call go#tool#Info(1)
-nnoremap <silent> <Plug>(go-deps) :call go#tool#Deps()
-nnoremap <silent> <Plug>(go-files) :call go#tool#Files()
-nnoremap <silent> <Plug>(go-coverage-browser) :call go#coverage#Browser(!g:go_jump_to_error)
-nnoremap <silent> <Plug>(go-coverage-toggle) :call go#coverage#BufferToggle(!g:go_jump_to_error)
-nnoremap <silent> <Plug>(go-coverage-clear) :call go#coverage#Clear()
-nnoremap <silent> <Plug>(go-coverage) :call go#coverage#Buffer(!g:go_jump_to_error)
-nnoremap <silent> <Plug>(go-test-compile) :call go#test#Test(!g:go_jump_to_error, 1)
-nnoremap <silent> <Plug>(go-test-func) :call go#test#Func(!g:go_jump_to_error)
-nnoremap <silent> <Plug>(go-test) :call go#test#Test(!g:go_jump_to_error, 0)
-nnoremap <silent> <Plug>(go-install) :call go#cmd#Install(!g:go_jump_to_error)
-nnoremap <silent> <Plug>(go-generate) :call go#cmd#Generate(!g:go_jump_to_error)
-nnoremap <silent> <Plug>(go-build) :call go#cmd#Build(!g:go_jump_to_error)
 nnoremap <silent> <Plug>(go-run) :call go#cmd#Run(!g:go_jump_to_error)
+nnoremap <silent> <Plug>(go-build) :call go#cmd#Build(!g:go_jump_to_error)
+nnoremap <silent> <Plug>(go-generate) :call go#cmd#Generate(!g:go_jump_to_error)
+nnoremap <silent> <Plug>(go-install) :call go#cmd#Install(!g:go_jump_to_error)
+nnoremap <silent> <Plug>(go-test) :call go#test#Test(!g:go_jump_to_error, 0)
+nnoremap <silent> <Plug>(go-test-func) :call go#test#Func(!g:go_jump_to_error)
+nnoremap <silent> <Plug>(go-test-compile) :call go#test#Test(!g:go_jump_to_error, 1)
+nnoremap <silent> <Plug>(go-coverage) :call go#coverage#Buffer(!g:go_jump_to_error)
+nnoremap <silent> <Plug>(go-coverage-clear) :call go#coverage#Clear()
+nnoremap <silent> <Plug>(go-coverage-toggle) :call go#coverage#BufferToggle(!g:go_jump_to_error)
+nnoremap <silent> <Plug>(go-coverage-browser) :call go#coverage#Browser(!g:go_jump_to_error)
+nnoremap <silent> <Plug>(go-files) :call go#tool#Files()
+nnoremap <silent> <Plug>(go-deps) :call go#tool#Deps()
+nnoremap <silent> <Plug>(go-info) :call go#tool#Info(1)
+nnoremap <silent> <Plug>(go-import) :call go#import#SwitchImport(1, '', expand('<cword>'), '')
+nnoremap <silent> <Plug>(go-imports) :call go#fmt#Format(1)
+nnoremap <silent> <Plug>(go-implements) :call go#guru#Implements(-1)
+nnoremap <silent> <Plug>(go-callees) :call go#guru#Callees(-1)
+nnoremap <silent> <Plug>(go-callers) :call go#guru#Callers(-1)
+nnoremap <silent> <Plug>(go-describe) :call go#guru#Describe(-1)
+nnoremap <silent> <Plug>(go-callstack) :call go#guru#Callstack(-1)
+xnoremap <silent> <Plug>(go-freevars) :call go#guru#Freevars(0)
+nnoremap <silent> <Plug>(go-channelpeers) :call go#guru#ChannelPeers(-1)
+nnoremap <silent> <Plug>(go-referrers) :call go#referrers#Referrers(-1)
+nnoremap <silent> <Plug>(go-sameids) :call go#guru#SameIds(1)
+nnoremap <silent> <Plug>(go-pointsto) :call go#guru#PointsTo(-1)
+nnoremap <silent> <Plug>(go-whicherrs) :call go#guru#Whicherrs(-1)
+nnoremap <silent> <Plug>(go-sameids-toggle) :call go#guru#ToggleSameIds()
+nnoremap <silent> <Plug>(go-rename) :call go#rename#Rename(!g:go_jump_to_error)
+nnoremap <silent> <Plug>(go-decls) :call go#decls#Decls(0, '')
+nnoremap <silent> <Plug>(go-decls-dir) :call go#decls#Decls(1, '')
+nnoremap <silent> <Plug>(go-def) :call go#def#Jump('', 0)
+nnoremap <silent> <Plug>(go-def-vertical) :call go#def#Jump("vsplit", 0)
+nnoremap <silent> <Plug>(go-def-split) :call go#def#Jump("split", 0)
+nnoremap <silent> <Plug>(go-def-tab) :call go#def#Jump("tab", 0)
+nnoremap <silent> <Plug>(go-def-type) :call go#def#Jump('', 1)
+nnoremap <silent> <Plug>(go-def-type-vertical) :call go#def#Jump("vsplit", 1)
+nnoremap <silent> <Plug>(go-def-type-split) :call go#def#Jump("split", 1)
+nnoremap <silent> <Plug>(go-def-type-tab) :call go#def#Jump("tab", 1)
+nnoremap <silent> <Plug>(go-def-pop) :call go#def#StackPop()
+nnoremap <silent> <Plug>(go-def-stack) :call go#def#Stack()
+nnoremap <silent> <Plug>(go-def-stack-clear) :call go#def#StackClear()
+nnoremap <silent> <Plug>(go-doc) :call go#doc#Open("new", "split")
+nnoremap <silent> <Plug>(go-doc-tab) :call go#doc#Open("tabnew", "tabe")
+nnoremap <silent> <Plug>(go-doc-vertical) :call go#doc#Open("vnew", "vsplit")
+nnoremap <silent> <Plug>(go-doc-split) :call go#doc#Open("new", "split")
+nnoremap <silent> <Plug>(go-doc-browser) :call go#doc#OpenBrowser()
+nnoremap <silent> <Plug>(go-metalinter) :call go#lint#Gometa(!g:go_jump_to_error, 0)
+nnoremap <silent> <Plug>(go-lint) :call go#lint#Golint(!g:go_jump_to_error)
+nnoremap <silent> <Plug>(go-vet) :call go#lint#Vet(!g:go_jump_to_error)
+nnoremap <silent> <Plug>(go-alternate-edit) :call go#alternate#Switch(0, "edit")
+nnoremap <silent> <Plug>(go-alternate-vertical) :call go#alternate#Switch(0, "vsplit")
+nnoremap <silent> <Plug>(go-alternate-split) :call go#alternate#Switch(0, "split")
+nnoremap <silent> <Plug>(go-iferr) :call go#iferr#Generate()
+nnoremap <silent> <Plug>(go-diagnostics) :call go#lint#Diagnostics(!g:go_jump_to_error)
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
 map <C-M> :cprevious
@@ -231,25 +231,23 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
+45
+normal! zo
 49
 normal! zo
 80
 normal! zo
 84
 normal! zo
-let s:l = 83 - ((82 * winheight(0) + 23) / 46)
+let s:l = 47 - ((20 * winheight(0) + 23) / 46)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-83
-normal! 0
+47
+normal! 032|
 tabnext
-edit cfg/terminator.cfg
+edit cfg/trader.cfg.src
 set splitbelow splitright
-wincmd _ | wincmd |
-split
-1wincmd k
-wincmd w
 set nosplitbelow
 set nosplitright
 wincmd t
@@ -257,8 +255,6 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 23 + 24) / 48)
-exe '2resize ' . ((&lines * 21 + 24) / 48)
 argglobal
 setlocal keymap=
 setlocal noarabic
@@ -276,7 +272,7 @@ setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
 setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
-setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+setlocal comments=:#
 setlocal commentstring=#\ %s
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
@@ -294,8 +290,8 @@ setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
 setlocal expandtab
-if &filetype != 'cfg'
-setlocal filetype=cfg
+if &filetype != 'conf'
+setlocal filetype=conf
 endif
 setlocal fixendofline
 setlocal foldcolumn=0
@@ -362,8 +358,8 @@ setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != 'cfg'
-setlocal syntax=cfg
+if &syntax != 'conf'
+setlocal syntax=conf
 endif
 setlocal tabstop=2
 setlocal tagcase=
@@ -383,16 +379,23 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 2 - ((1 * winheight(0) + 11) / 23)
+let s:l = 199 - ((39 * winheight(0) + 23) / 46)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-2
-normal! 022|
-lcd ~/go/src/github.com/amissine/stellar_kelp_examples
-wincmd w
+199
+normal! 09|
+tabnext
+edit cfg/buysell.cfg.src
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
 argglobal
-if bufexists("~/go/src/github.com/amissine/stellar_kelp_examples/cfg/trader.cfg") | buffer ~/go/src/github.com/amissine/stellar_kelp_examples/cfg/trader.cfg | else | edit ~/go/src/github.com/amissine/stellar_kelp_examples/cfg/trader.cfg | endif
 setlocal keymap=
 setlocal noarabic
 setlocal noautoindent
@@ -409,7 +412,7 @@ setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
 setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
-setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+setlocal comments=:#
 setlocal commentstring=#\ %s
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
@@ -427,8 +430,8 @@ setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
 setlocal expandtab
-if &filetype != 'cfg'
-setlocal filetype=cfg
+if &filetype != 'conf'
+setlocal filetype=conf
 endif
 setlocal fixendofline
 setlocal foldcolumn=0
@@ -495,8 +498,8 @@ setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != 'cfg'
-setlocal syntax=cfg
+if &syntax != 'conf'
+setlocal syntax=conf
 endif
 setlocal tabstop=2
 setlocal tagcase=
@@ -516,157 +519,14 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 1 - ((0 * winheight(0) + 10) / 21)
+let s:l = 111 - ((34 * winheight(0) + 23) / 46)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
-wincmd w
-exe '1resize ' . ((&lines * 23 + 24) / 48)
-exe '2resize ' . ((&lines * 21 + 24) / 48)
-tabnext
-edit ~/go/src/github.com/amissine/stellar_kelp_examples/cfg/terminator.cfg.src
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winminheight=0
-set winheight=1
-set winminwidth=0
-set winwidth=1
-argglobal
-setlocal keymap=
-setlocal noarabic
-setlocal noautoindent
-setlocal backupcopy=
-setlocal balloonexpr=
-setlocal nobinary
-setlocal nobreakindent
-setlocal breakindentopt=
-setlocal bufhidden=
-setlocal buflisted
-setlocal buftype=
-setlocal nocindent
-setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
-setlocal cinoptions=
-setlocal cinwords=if,else,while,do,for,switch
-setlocal colorcolumn=
-setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
-setlocal commentstring=/*%s*/
-setlocal complete=.,w,b,u,t,i
-setlocal concealcursor=
-setlocal conceallevel=0
-setlocal completefunc=
-setlocal nocopyindent
-setlocal cryptmethod=
-setlocal nocursorbind
-setlocal nocursorcolumn
-setlocal nocursorline
-setlocal cursorlineopt=both
-setlocal define=
-setlocal dictionary=
-setlocal nodiff
-setlocal equalprg=
-setlocal errorformat=
-setlocal expandtab
-if &filetype != ''
-setlocal filetype=
-endif
-setlocal fixendofline
-setlocal foldcolumn=0
-setlocal foldenable
-setlocal foldexpr=0
-setlocal foldignore=#
-setlocal foldlevel=0
-setlocal foldmarker={{{,}}}
-set foldmethod=marker
-setlocal foldmethod=marker
-setlocal foldminlines=1
-setlocal foldnestmax=20
-setlocal foldtext=foldtext()
-setlocal formatexpr=
-setlocal formatoptions=tcq
-setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
-setlocal formatprg=
-setlocal grepprg=
-setlocal iminsert=0
-setlocal imsearch=-1
-setlocal include=
-setlocal includeexpr=
-setlocal indentexpr=
-setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e
-setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=
-setlocal nolinebreak
-setlocal nolisp
-setlocal lispwords=
-setlocal nolist
-setlocal makeencoding=
-setlocal makeprg=
-setlocal matchpairs=(:),{:},[:]
-setlocal nomodeline
-setlocal modifiable
-setlocal nrformats=bin,octal,hex
-set number
-setlocal number
-setlocal numberwidth=4
-setlocal omnifunc=
-setlocal path=
-setlocal nopreserveindent
-setlocal nopreviewwindow
-setlocal quoteescape=\\
-setlocal noreadonly
-setlocal norelativenumber
-setlocal norightleft
-setlocal rightleftcmd=search
-setlocal noscrollbind
-setlocal scrolloff=-1
-setlocal shiftwidth=2
-setlocal noshortname
-setlocal showbreak=
-setlocal sidescrolloff=-1
-setlocal signcolumn=auto
-setlocal nosmartindent
-setlocal softtabstop=0
-setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
-setlocal spellfile=
-setlocal spelllang=en
-setlocal statusline=
-setlocal suffixesadd=
-setlocal swapfile
-setlocal synmaxcol=3000
-if &syntax != ''
-setlocal syntax=
-endif
-setlocal tabstop=2
-setlocal tagcase=
-setlocal tagfunc=
-setlocal tags=
-setlocal termwinkey=
-setlocal termwinscroll=10000
-setlocal termwinsize=
-setlocal textwidth=0
-setlocal thesaurus=
-setlocal noundofile
-setlocal undolevels=-123456
-setlocal varsofttabstop=
-setlocal vartabstop=
-setlocal wincolor=
-setlocal nowinfixheight
-setlocal nowinfixwidth
-setlocal wrap
-setlocal wrapmargin=0
-let s:l = 5 - ((4 * winheight(0) + 23) / 46)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-5
+111
 normal! 0
 tabnext
-edit ~/go/src/github.com/amissine/stellar_kelp_examples/cmd/root.go
+edit cmd/root.go
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -836,7 +696,7 @@ normal! zt
 7
 normal! 0
 tabnext
-edit ~/go/src/github.com/amissine/stellar_kelp_examples/cmd/addaccount.go
+edit cmd/addaccount.go
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -1007,17 +867,19 @@ exe s:l
 normal! zt
 44
 normal! 0
-tabnext 2
+tabnext 3
 set stal=1
-badd +0 ~/go/src/github.com/amissine/stellar_kelp_examples/Makefile
-badd +1 ~/go/src/github.com/amissine/stellar_kelp_examples/cfg/terminator.cfg.src
-badd +7 ~/go/src/github.com/amissine/stellar_kelp_examples/cmd/root.go
-badd +1 ~/go/src/github.com/amissine/stellar_kelp_examples/cmd/addaccount.go
-badd +10 ~/go/src/github.com/amissine/stellar_kelp_examples/main.go
-badd +34 ~/go/src/github.com/amissine/stellar_kelp_examples/vendor/github.com/spf13/cobra/command.go
-badd +1 ~/go/src/github.com/amissine/stellar_kelp_examples/add_source_account.run
-badd +1 ~/go/src/github.com/amissine/stellar_kelp_examples/cfg/trader.cfg
-badd +0 ~/go/src/github.com/amissine/stellar_kelp_examples/cfg/terminator.cfg
+badd +1 Makefile
+badd +2 cfg/terminator.cfg
+badd +5 cfg/terminator.cfg.src
+badd +7 cmd/root.go
+badd +1 cmd/addaccount.go
+badd +0 cfg/trader.cfg
+badd +10 main.go
+badd +34 vendor/github.com/spf13/cobra/command.go
+badd +1 add_source_account.run
+badd +0 cfg/trader.cfg.src
+badd +0 cfg/buysell.cfg.src
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
@@ -1029,6 +891,7 @@ if file_readable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &so = s:so_save | let &siso = s:siso_save
+nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :

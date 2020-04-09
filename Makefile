@@ -43,20 +43,20 @@ buysell: cfg/buysell.cfg cfg/trader.cfg
 	@kelp trade --botConf cfg/trader.cfg --strategy buysell --stratConf cfg/buysell.cfg
 
 # Update cfg/buysell.cfg {{{1
-cfg/buysell.cfg:
-	cp $@.src $@
+cfg/buysell.cfg: cfg/buysell.cfg.src
+	@cp $< $@; echo '- $@ updated'
 
 # Update cfg/trader.cfg {{{1
-cfg/trader.cfg: add_trader_account.run fund_trader_account.run
+cfg/trader.cfg: cfg/trader.cfg.src add_trader_account.run fund_trader_account.run
 	@echo "export TRADER_PUBLIC_KEY=$$(cat add_trader_account.run | grep address | awk '{print $$2}')" > e; \
 	echo "export TRADER_SECRET_SEED=$$(cat add_trader_account.run | grep seed | awk '{print $$2}')" >> e; \
 	echo "export SOURCE_PUBLIC_KEY=$$(cat add_source_account.run | grep address | awk '{print $$2}')" >> e; \
 	echo "export SOURCE_SECRET_SEED=$$(cat add_source_account.run | grep seed | awk '{print $$2}')" >> e; \
 	. e; rm e; \
-	sed "s/{TRADER_PUBLIC_KEY}/$${TRADER_PUBLIC_KEY}/g" <./cfg/trader.cfg.src | \
+	sed "s/{TRADER_PUBLIC_KEY}/$${TRADER_PUBLIC_KEY}/g" <$< | \
 	sed "s/{TRADER_SECRET_SEED}/$${TRADER_SECRET_SEED}/g" | \
 	sed "s/{SOURCE_PUBLIC_KEY}/$${SOURCE_PUBLIC_KEY}/g" | \
-	sed "s/{SOURCE_SECRET_SEED}/$${SOURCE_SECRET_SEED}/g" >cfg/trader.cfg
+	sed "s/{SOURCE_SECRET_SEED}/$${SOURCE_SECRET_SEED}/g" >$@; echo '- $@ updated'
 
 # Add trader account {{{1
 add_trader_account.run: add_source_account.run
